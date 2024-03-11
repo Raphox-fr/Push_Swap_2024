@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/09 17:44:57 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/11 15:56:36 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,7 @@ int					initializatiom_with_split(t_stack *stack_a, int argc,
 						char **argv);
 int					get_words_count(char *str, char *charset);
 int	initializatiom_basic(t_stack *stack_a, int argc, char **argv);
+
+int check_first_args(char *str);
 
 #endif

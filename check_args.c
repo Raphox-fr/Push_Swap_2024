@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/09 18:29:12 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/11 15:56:29 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_base(int argc, char **argv)
 	int	index;
 	int found;
 
-	i = 1;
+	i = 0;
 	index = 0;
 	found = 0;
 
@@ -71,3 +71,4 @@ int	check_base(int argc, char **argv)
 // quel est le prochain plus grand e la pile de B pour toutes les valeurs par rapport a pile a
 // stock la psotion de sa poitsion dans a
 // tu additionnes les positions
+// argc = 2, on prend le 1 er pqrqmeres
