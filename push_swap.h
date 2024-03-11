@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 15:56:36 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/11 18:51:03 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,10 @@ char				*ft_strncpy(char *dest, char *src, unsigned int n);
 long int			ft_atoi(char *str);
 void				args_to_int(int argc, char **argv);
 void				exit_error(t_stack **stack_a, t_stack **stack_b);
+char				*ft_strjoin(int size, char **strs, char *sep);
 
 // Check args
-int					check_base(int argc, char **argv);
+int					check_base(int argc, char *argv);
 int					check_letters_in_args(char *str);
 
 // Move
@@ -61,10 +62,11 @@ t_stack				*new_stack(int value);
 t_stack				*add_to_end_linklist(t_stack *stack, char *data);
 char				**ft_split(char *str, char *charset);
 int					initializatiom_with_split(t_stack *stack_a, int argc,
-						char **argv);
+						char *str);
 int					get_words_count(char *str, char *charset);
-int	initializatiom_basic(t_stack *stack_a, int argc, char **argv);
+int					initializatiom_basic(t_stack *stack_a, int argc,
+						char **argv);
 
-int check_first_args(char *str);
+int					check_first_args(char *str);
 
 #endif

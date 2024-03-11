@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 15:56:29 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/11 18:50:57 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int check_letters_in_args(char *str)
 		return (1);
 }
 
-int	check_base(int argc, char **argv)
+int	check_base(int count_words, char *string)
 {
 	int	i;
 	int	index;
@@ -41,16 +41,16 @@ int	check_base(int argc, char **argv)
 	index = 0;
 	found = 0;
 
-	while (index < argc - 1)
+	while (index < count_words - 1)
 	{
 		index++;
-		while (i < argc)
+		while (i < count_words)
 		{
-			if ((check_letters_in_args(argv[index]) == 0))
+			if ((check_letters_in_args(string[index]) == 0))
 				return (0);
-			if (ft_atoi(argv[index]) > 2147483647 || ft_atoi(argv[index]) < -2147483648)
+			if (ft_atoi(string[index]) > 2147483647 || ft_atoi(string[index]) < -2147483648)
 				return (0);
-			if (ft_atoi(argv[index]) == ft_atoi(argv[i]))
+			if (ft_atoi(string[index]) == ft_atoi(string[i]))
 				found++;
 			if (found >= 2)
 				return (0);
@@ -71,4 +71,4 @@ int	check_base(int argc, char **argv)
 // quel est le prochain plus grand e la pile de B pour toutes les valeurs par rapport a pile a
 // stock la psotion de sa poitsion dans a
 // tu additionnes les positions
-// argc = 2, on prend le 1 er pqrqmeres
+// count_words = 2, on prend le 1 er pqrqmeres

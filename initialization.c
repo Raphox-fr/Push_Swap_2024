@@ -6,36 +6,29 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 15:56:14 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/11 18:50:40 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int initializatiom_with_split(t_stack *stack_a, int argc, char **argv)
+int initializatiom_with_split(t_stack *stack_a, int argc, char *str)
 {
 	int i;
 	int count_elements;
 	char **string;
 	
 	i = 1;
-	count_elements = get_words_count(argv[1], " ");
-	string = ft_split(argv[1], " ");
+	count_elements = get_words_count(str, " ");
+	string = ft_split(str, " ");
 
 	
-	if (check_base(count_elements, string) == 0)
+	if (check_base(count_elements, str) == 0)
 	{
 		printf("Errorup\n");
 		exit(1);
 	}
-	
-	if (count_elements == 1)
-	{
-		stack_a->data = ft_atoi(string[0]);
-		stack_a->next = NULL;
-		stack_a->prev = NULL;
-	}
-	
+
 	if (count_elements >= 2)
 	{
 		stack_a->data = ft_atoi(string[0]);
@@ -47,44 +40,6 @@ int initializatiom_with_split(t_stack *stack_a, int argc, char **argv)
 	return (0);
 	}
 }
-
-
-int	initializatiom_basic(t_stack *stack_a, int argc, char **argv)
-{
-	stack_a->data = ft_atoi(argv[1]);
-
-	int i;
-	i = 2;
-
-	if (check_base(argc, argv) == 0)
-	{
-		printf("Error\n");
-		exit(1);
-	}	
-	while (i < argc)
-	{
-		add_to_end_linklist(stack_a, argv[i]);
-		i++;
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

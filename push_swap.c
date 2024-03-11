@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 15:56:23 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/11 18:46:18 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 
 int main(int argc, char **argv)
 {
+	char *joind_args;
 	t_stack *stack_a;
 	t_stack *stack_b;
 	stack_a = new_stack(0);
@@ -50,15 +51,21 @@ int main(int argc, char **argv)
 	
 	if (argc == 1)
 		return (0);
+
+
+
+	if (argc > 2)
+	{
+		joind_args = ft_strjoin(argc, argv, ' ');
+		initializatiom_with_split(stack_a, argc, joind_args);
+		
+	}
+
 	if (argc == 2)
 	{
 		initializatiom_with_split(stack_a, argc, argv);
 	}
 
-	else if (argc >= 2)
-	{
-		initializatiom_basic(stack_a, argc, argv);
-	}
 	
 	// push_swap(&stack_a, &stack_b);
 	
