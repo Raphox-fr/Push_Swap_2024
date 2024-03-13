@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 18:51:03 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/13 15:36:30 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,19 @@ typedef struct s_stack
 
 }					t_stack;
 
+//error
+void	free_stack(t_stack **stack);
+void	exit_error(t_stack **stack_a, t_stack **stack_b);
+
 // Annexe
 int					ft_strlen(char *str);
 char				*ft_strncpy(char *dest, char *src, unsigned int n);
 long int			ft_atoi(char *str);
 void				args_to_int(int argc, char **argv);
-void				exit_error(t_stack **stack_a, t_stack **stack_b);
 char				*ft_strjoin(int size, char **strs, char *sep);
 
 // Check args
-int					check_base(int argc, char *argv);
+int					check_base(int argc, char **argv);
 int					check_letters_in_args(char *str);
 
 // Move

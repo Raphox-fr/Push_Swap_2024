@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 18:50:40 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/13 18:08:28 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,19 @@ int initializatiom_with_split(t_stack *stack_a, int argc, char *str)
 	int count_elements;
 	char **string;
 	
-	i = 1;
+	i = 2;
 	count_elements = get_words_count(str, " ");
 	string = ft_split(str, " ");
 
 	
-	if (check_base(count_elements, str) == 0)
+	if (check_base(count_elements, string) == 0)
 	{
-		printf("Errorup\n");
+		exit_error(&stack_a, &stack_a);
 		exit(1);
 	}
-
-	if (count_elements >= 2)
+	stack_a->data = ft_atoi(string[1]);
+	if (count_elements > 2)
 	{
-		stack_a->data = ft_atoi(string[0]);
 		while (i < count_elements)
 		{
 			add_to_end_linklist(stack_a, string[i]);
@@ -47,25 +46,28 @@ t_stack	*new_stack(int value)
 {
 	t_stack	*new;
 
-	new = (t_stack *)malloc(sizeof(new));
+	new = (t_stack *)malloc(sizeof(t_stack) * 1);
 	if (!new)
 		return (NULL);
 	
 	new->data = value;
 	new->next = NULL;
 	new->prev = NULL;
+	// free(new);
 	return (new);
 }
 
-t_stack *add_to_end_linklist(t_stack *stack, char *data)
+
+t_stack *add_to_end_linklist(t_stack *stack, char *value)
 {
-	
 	t_stack *node;
 	node = malloc(sizeof(t_stack));
+	if (node == NULL)
+		return (0);
 	t_stack *last_node; 
 
 	
-	node->data = ft_atoi(data);
+	node->data = ft_atoi(value);
 	node->prev = NULL;
 	node->next = NULL;
 

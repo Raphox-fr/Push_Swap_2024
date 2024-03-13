@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 18:50:57 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/12 16:16:40 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int check_letters_in_args(char *str)
 {
 	int i;
 	i = 0;
-	while (str[i] && (str[i] >= '0' && str[i] <= '9') || str[i] == '-')
+	while (str[i] && (str[i] >= '0' && str[i] <= '9') || str[i] == '-' || str[i] == '+')
 	{
 		i++;
 	}
@@ -31,7 +31,7 @@ int check_letters_in_args(char *str)
 		return (1);
 }
 
-int	check_base(int count_words, char *string)
+int	check_base(int count_words, char **string)
 {
 	int	i;
 	int	index;

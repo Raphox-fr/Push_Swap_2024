@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:21:37 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/11 18:49:08 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/13 15:36:40 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,6 @@ int ft_strlen(char *str)
 }
 
 //----------------------------------------------------------
-
-
-void	exit_error(t_stack **stack_a, t_stack **stack_b)
-{
-	write(2, "Error\n", 6);
-	exit (1);
-}
-
-void	free_stack(t_stack **stack)
-{
-	t_stack	*tmp;
-
-	if (!stack || !(*stack))
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-	*stack = NULL;
-}
 //----------------------------------------------------------
 
 
