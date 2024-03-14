@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:42:00 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/09 16:19:59 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/14 15:17:01 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	rotate_a_b(t_stack **stack_a_b, int i)
 	t_stack	*slide;
 
 	end_filler = malloc(sizeof(t_stack));
+	if (end_filler == NULL)
+		return ;
 	end_filler->data = (*stack_a_b)->data;
 	end_filler->next = NULL;
 	*stack_a_b = (*stack_a_b)->next;

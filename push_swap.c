@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/13 17:57:23 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:13:08 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,26 +50,30 @@ int main(int argc, char **argv)
 	stack_b = NULL;
 	
 	if (argc == 1)
+	{
+		free_stack(&stack_a);
 		return (0);
+	}
 
 	if (argc == 2)
 	{
 		joind_args = ft_strjoin(argc, argv, " ");
 		initializatiom_with_split(stack_a, argc, joind_args);
+		free(joind_args);
 	}
 
 	if (argc >= 3)
 	{
 		joind_args = ft_strjoin(argc, argv, " ");
 		initializatiom_with_split(stack_a, argc, joind_args);
-		
+		free(joind_args);
 	}
 	
 	// push_swap(&stack_a, &stack_b);
 	
-	for (t_stack *stack = stack_a; stack != NULL; stack = stack->next)
-		printf("%d\n", stack->data);
-
+	// ----------------------------------------------------------
+	// for (t_stack *stack = stack_a; stack != NULL; stack = stack->next)
+	// 	printf("%d\n", stack->data);
 	
 		printf("Stack A: ");
 	for (t_stack *cur = stack_a; cur != NULL; cur = cur->next)
@@ -80,6 +84,10 @@ int main(int argc, char **argv)
 	for (t_stack *cur = stack_b; cur != NULL; cur = cur->next)
 		printf("%d ", cur->data);
 		printf("\n");
+
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+
 	return (0);
 
 }

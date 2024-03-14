@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:31:08 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/13 15:37:49 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/14 16:52:38 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 		free_stack(stack_a);
 	if (stack_b == NULL || *stack_b != NULL)
 		free_stack(stack_b);
-	write(2, "Error\n", 6);
+	write(2, "Errorup\n", 8);
 	exit (1);
 }

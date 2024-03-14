@@ -6,31 +6,29 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:21:37 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/13 15:36:40 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/14 16:59:19 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-	int i;
-	i = 0;
+	int	i;
 
-	while(str[i])
+	i = 0;
+	while (str[i])
 		i++;
 	return (i);
 }
 
 //----------------------------------------------------------
-//----------------------------------------------------------
-
 
 long int	ft_atoi(char *str)
 {
-	long int neg;
-	long int num;
-	long int i;
+	long int	neg;
+	long int	num;
+	long int	i;
 
 	i = 0;
 	neg = 1;
@@ -70,8 +68,6 @@ char	*ft_strncpy(char *dest, char *src, unsigned int n)
 	}
 	return (dest);
 }
-
-
 
 int	ft_count_string(int size, char **strs, char *sep)
 {
@@ -121,9 +117,9 @@ char	*real_bruv(int size, char *tab, char **strs, char *sep)
 
 char	*ft_strjoin(int size, char **strs, char *sep)
 {
-	char	*tab;
-	int		countall;
-	char	*anh;
+	char *tab;
+	int countall;
+	char *anh;
 
 	if (size == 0)
 	{
@@ -133,6 +129,8 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	countall = ft_count_string(size, strs, sep);
 	tab = malloc((sizeof(char)) * (countall + 1));
+		if (tab == NULL)
+			return(tab);
 	if ((real_bruv(size, tab, strs, sep)) == tab)
 		return (tab);
 	return (tab);

@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/13 18:08:28 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:09:29 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int initializatiom_with_split(t_stack *stack_a, int argc, char *str)
 	char **string;
 	
 	i = 2;
-	count_elements = get_words_count(str, " ");
-	string = ft_split(str, " ");
+	count_elements = count_words(str, ' ');
+	string = ft_split(str, ' ');
 
 	
 	if (check_base(count_elements, string) == 0)
@@ -36,6 +36,7 @@ int initializatiom_with_split(t_stack *stack_a, int argc, char *str)
 			add_to_end_linklist(stack_a, string[i]);
 			i++;
 		}
+	free_array((size_t)count_elements, string);
 	return (0);
 	}
 }
@@ -83,229 +84,117 @@ t_stack *add_to_end_linklist(t_stack *stack, char *value)
 	return (stack);
 }
 
-#include <stdlib.h>
 
-int		is_separator(char c, char *charset)
+//----------------------------------------------------------------------------------
+
+static size_t	count_words(char *s, char c)
 {
-	int	i;
+	size_t	count;
+	size_t	i;
 
+	count = 0;
 	i = 0;
-	while (charset[i])
+	while (*(s + i))
 	{
-		if (c == charset[i])
-			return (1);
-		++i;
-	}
-	return (0);
-}
-// ---------------------------------------------------------------------------------------------------
-
-int		is_word(char c, char cbefore, char *charset)
-{
-	return (!is_separator(c, charset) && is_separator(cbefore, charset));
-}
-
-int		get_words_count(char *str, char *charset)
-{
-	int	words_count;
-	int	i;
-
-	i = 0;
-	words_count = 0;
-	while (str[i] != '\0')
-	{
-		if (is_word(str[i], str[i - 1], charset) ||
-			(!is_separator(str[i], charset) && i == 0))
-			words_count++;
-		i++;
-	}
-	return (words_count);
-}
-
-int		*get_words_size(char *str, char *charset)
-{
-	int	index;
-	int	i;
-	int	words_count;
-	int	*words_size;
-
-	i = 0;
-	words_count = get_words_count(str, charset);
-	words_size = malloc(words_count * sizeof(int));
-	while (i <= words_count)
-	{
-		words_size[i] = 0;
-		i++;
-	}
-	i = 0;
-	index = 0;
-	while (str[i] != '\0')
-	{
-		if (!is_separator(str[i], charset))
-			words_size[index]++;
-		else if (i > 0 && !is_separator(str[i - 1], charset))
-			index++;
-		i++;
-	}
-	return (words_size);
-}
-
-char	**ft_split(char *str, char *charset)
-{
-	char	**words;
-	int		i;
-	int		j;
-	int		index;
-	int		*words_size;
-
-	words = malloc((get_words_count(str, charset) + 1) * sizeof(char*));
-	words_size = get_words_size(str, charset);
-	index = 0;
-	j = 0;
-	i = -1;
-	while (str[++i] != '\0')
-	{
-		if (!is_separator(str[i], charset))
+		if (*(s + i) != c)
 		{
-			if (i == 0 || is_word(str[i], str[i - 1], charset))
-				words[index] = malloc(words_size[index] * sizeof(char));
-			words[index][j] = str[i];
-			words[index][++j] = '\0';
+			count++;
+			while (*(s + i) && *(s + i) != c)
+				i++;
 		}
-		else if (i > 0 && !is_separator(str[i - 1], charset) && ++index)
-			j = 0;
+		else if (*(s + i) == c)
+			i++;
 	}
-	words[get_words_count(str, charset)] = 0;
-	return (words);
+	return (count);
+}
+
+static size_t	get_word_len(char *s, char c)
+{
+	size_t	i;
+
+	i = 0;
+	while (*(s + i) && *(s + i) != c)
+		i++;
+	return (i);
+}
+
+void	free_array(size_t i, char **array)
+{
+	while (i > 0)
+	{
+		i--;
+		free(*(array + i));
+	}
+	free(array);
+}
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	str = (char*)malloc(sizeof(*s) * (len + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
 }
 
 
 
+static char	**split(char *s, char c, char **array, size_t words_count)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (i < words_count)
+	{
+		while (*(s + j) && *(s + j) == c)
+			j++;
+		*(array + i) = ft_substr(s, j, get_word_len(&*(s + j), c));
+		if (!*(array + i))
+		{
+			free_array(i, array);
+			return (NULL);
+		}
+		while (*(s + j) && *(s + j) != c)
+			j++;
+		i++;
+	}
+	*(array + i) = NULL;
+	return (array);
+}
+
+char	**ft_split(char *s, char c)
+{
+	char	**array;
+	size_t	words;
+
+	if (!s)
+		return (NULL);
+	words = count_words(s, c);
+	array = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!array)
+		return (NULL);
+	array = split(s, c, array, words);
+	return (array);
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// void linked_list_append(t_stack *list, const char *data)
-// {
-
-//     t_stack *node = (struct node *)malloc(sizeof(node) * 1);
-
-//     size_t bytes = strlen(data) + 1;
-//     node->data = (char *)malloc(sizeof(char) * bytes);
-
-
-//     ft_strncpy(node->data, data, bytes);
-//     node->next = NULL;
-    
-// 	if (list->prev == NULL)
-//         list->prev = node;
-	
-// 	else
-//     {
-//         t_stack *tail = list->prev;
-//         while (tail->next)
-//             tail = tail->next;
-//         tail->next = node;
-//     }
-//     list->size++;
-// }
-
-// void linked_list_append(t_stack *stack_a, int args)
-// {
-//     t_stack *node = (t_stack *)malloc(sizeof(node) * 1);
-
-//     node->data = args;
-//     node->next = NULL;
-    
-// 	if (stack_a->next == NULL)
-//         stack_a->next = node;
-	
-// 	else
-//     {
-//         t_stack *tail = stack_a->prev;
-//         while (tail->next)
-//             tail = tail->next;
-//         tail->next = node;
-//     }
-//     stack_a->size++;
-// }
-
-// void link_the_linked_list(t_stack stack_a, char *args)
-// {
-// 	t_stack *stack_b;
-// 	stack_b = malloc(sizeof(t_stack) * 1); 
-
-// 	int size;
-// 	size = ft_strlen(args);
-	
-// 	stack_b->data = malloc(sizeof(char) * size);
-	
-// 	ft_strncpy(stack_b->data, args, size + 1);
-	
-		
-// }
 
 
 

@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/13 15:36:30 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/14 17:09:39 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <strings.h>
 # include <unistd.h>
 
-// Structure
+// Structure ---------------------------------------------------------------------------
 typedef struct s_stack
 {
 	int				data;
@@ -30,22 +30,21 @@ typedef struct s_stack
 
 }					t_stack;
 
-//error
-void	free_stack(t_stack **stack);
-void	exit_error(t_stack **stack_a, t_stack **stack_b);
+// error ---------------------------------------------------------------------------
+void				free_stack(t_stack **stack);
+void				exit_error(t_stack **stack_a, t_stack **stack_b);
 
-// Annexe
+// Annexe ---------------------------------------------------------------------------
+long int			ft_atoi(char *str);
 int					ft_strlen(char *str);
 char				*ft_strncpy(char *dest, char *src, unsigned int n);
-long int			ft_atoi(char *str);
-void				args_to_int(int argc, char **argv);
 char				*ft_strjoin(int size, char **strs, char *sep);
 
-// Check args
+// Check args ---------------------------------------------------------------------------
 int					check_base(int argc, char **argv);
 int					check_letters_in_args(char *str);
 
-// Move
+// Moves ---------------------------------------------------------------------------
 // i = 0 = Stack_a | i = 1 = Stack_b | i = -1 Print rien
 
 void				swap_a_b(t_stack **stack_a_b, int i);
@@ -60,16 +59,20 @@ void				reverse_rotate_a_b(t_stack **stack_a_b, int i);
 void				reverse_reverse_rotate_a_b(t_stack **stack_a,
 						t_stack **stack_b);
 
-// Initilization
+// Initilization --------------------------------------------------------------------------
+
 t_stack				*new_stack(int value);
+static size_t		count_words(char *s, char c);
+char				**ft_split(char *s, char c);
+int					get_words_count(char *str, char *charset);
 t_stack				*add_to_end_linklist(t_stack *stack, char *data);
-char				**ft_split(char *str, char *charset);
 int					initializatiom_with_split(t_stack *stack_a, int argc,
 						char *str);
-int					get_words_count(char *str, char *charset);
-int					initializatiom_basic(t_stack *stack_a, int argc,
-						char **argv);
 
-int					check_first_args(char *str);
+// Free -----------------------------------------------------------------------------------
+void	free_stack(t_stack **stack);
+void	free_array(size_t i, char **array);
+
+
 
 #endif
