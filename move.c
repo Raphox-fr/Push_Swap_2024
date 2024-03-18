@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:42:00 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/14 15:17:01 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/15 17:06:04 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	rotate_a_b(t_stack **stack_a_b, int i)
 		printf("rb\n");
 }
 
-void	rotate_rotate_a_b(t_stack **stack_a, t_stack **stack_b)
+void	rotate_rotate_a_b(t_stack **stack_a)
 {
 	rotate_a_b(stack_a, -1);
 	rotate_a_b(stack_a, -1);

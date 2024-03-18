@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/14 17:09:29 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/15 17:05:37 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int initializatiom_with_split(t_stack *stack_a, int argc, char *str)
+int initializatiom_with_split(t_stack *stack_a, char *str)
 {
 	int i;
 	int count_elements;
@@ -39,6 +39,7 @@ int initializatiom_with_split(t_stack *stack_a, int argc, char *str)
 	free_array((size_t)count_elements, string);
 	return (0);
 	}
+	return (0);
 }
 
 
@@ -87,7 +88,7 @@ t_stack *add_to_end_linklist(t_stack *stack, char *value)
 
 //----------------------------------------------------------------------------------
 
-static size_t	count_words(char *s, char c)
+size_t	count_words(char *s, char c)
 {
 	size_t	count;
 	size_t	i;

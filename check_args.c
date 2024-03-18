@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/12 16:16:40 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/15 17:04:41 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int check_letters_in_args(char *str)
 {
 	int i;
 	i = 0;
-	while (str[i] && (str[i] >= '0' && str[i] <= '9') || str[i] == '-' || str[i] == '+')
+	while ((str[i] && str[i] >= '0' && str[i] <= '9') || (str[i] == '-' || str[i] == '+'))
 	{
 		i++;
 	}
@@ -29,6 +29,7 @@ int check_letters_in_args(char *str)
 		return (0);
 	if (i == ft_strlen(str))
 		return (1);
+	return (0);
 }
 
 int	check_base(int count_words, char **string)
