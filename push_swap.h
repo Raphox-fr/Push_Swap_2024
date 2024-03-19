@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/15 17:32:41 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/19 16:33:55 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_stack
 {
 	int				data;
+	int				size_a;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 
@@ -60,6 +61,8 @@ void				reverse_reverse_rotate_a_b(t_stack **stack_a,
 						t_stack **stack_b);
 
 // Initilization --------------------------------------------------------------------------
+
+int					initialize_all(int argc, char **argv, t_stack *stack_a);
 
 t_stack				*new_stack(int value);
 size_t				count_words(char *s, char c);
