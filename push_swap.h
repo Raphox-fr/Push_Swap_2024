@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/19 16:33:55 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/20 17:46:36 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,21 @@ typedef struct s_stack
 {
 	int				data;
 	int				size_a;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 
 }					t_stack;
 
-// error ---------------------------------------------------------------------------
-void				free_stack(t_stack **stack);
-void				exit_error(t_stack **stack_a, t_stack **stack_b);
+// Sorting--------------------------------------------------------------------------------
+
+void	radix_sort(t_stack **stack_a, t_stack **stack_b);
 
 // Annexe ---------------------------------------------------------------------------
 long int			ft_atoi(char *str);
 int					ft_strlen(char *str);
+int					get_max_bits(t_stack **stack);
+int					get_stack_size(t_stack **stack);
 char				*ft_strncpy(char *dest, char *src, unsigned int n);
 char				*ft_strjoin(int size, char **strs, char *sep);
 
@@ -48,19 +51,19 @@ int					check_letters_in_args(char *str);
 // Moves ---------------------------------------------------------------------------
 // i = 0 = Stack_a | i = 1 = Stack_b | i = -1 Print rien
 
-void				swap_a_b(t_stack **stack_a_b, int i);
-void				swap_swap_a_b(t_stack **stack_a, t_stack **stack_b);
+void				swap(t_stack **stack_a_b, int i);
+void				swap_swap(t_stack **stack_a, t_stack **stack_b);
 
-void				push_a_b(t_stack **stack_a, t_stack **stack_b, int i);
+void				push(t_stack **stack_a, t_stack **stack_b, int i);
 
-void				rotate_a_b(t_stack **stack_a_b, int i);
-void				rotate_rotate_a_b(t_stack **stack_a);
+void				rotate(t_stack **stack_a_b, int i);
+void				rotate_rotate(t_stack **stack_a);
 
-void				reverse_rotate_a_b(t_stack **stack_a_b, int i);
-void				reverse_reverse_rotate_a_b(t_stack **stack_a,
+void				reverse_rotate(t_stack **stack_a_b, int i);
+void				reverse_reverse_rotate(t_stack **stack_a,
 						t_stack **stack_b);
 
-// Initilization --------------------------------------------------------------------------
+// Initialization --------------------------------------------------------------------------
 
 int					initialize_all(int argc, char **argv, t_stack *stack_a);
 
@@ -70,6 +73,10 @@ char				**ft_split(char *s, char c);
 int					get_words_count(char *str, char *charset);
 t_stack				*add_to_end_linklist(t_stack *stack, char *data);
 int					initializatiom_with_split(t_stack *stack_a, char *str);
+
+// error ---------------------------------------------------------------------------
+void				free_stack(t_stack **stack);
+void				exit_error(t_stack **stack_a, t_stack **stack_b);
 
 // Free -----------------------------------------------------------------------------------
 void				free_stack(t_stack **stack);

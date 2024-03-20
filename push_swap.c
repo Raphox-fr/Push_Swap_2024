@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/19 17:47:56 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/20 17:55:48 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	push_a_b(stack_b, stack_a, 0);
-	push_a_b(stack_b, stack_a, 0);
-	push_a_b(stack_b, stack_a, 0);
-	push_a_b(stack_b, stack_a, 0);
-	push_a_b(stack_b, stack_a, 0);
-	// swap_a_b(stack_a, 0);
-	// swap_a_b(stack_b, 1);
-	// swap_swap_a_b(stack_a, stack_b);
-	// push_a_b(stack_a, stack_b, 0);
-	// push_a_b(stack_a, stack_b, 1);
-	// rotate_a_b(stack_a, 0);
-	// rotate_a_b(stack_a, 1);
-	// rotate_rotate_a_b(stack_a);
-	// reverse_rotate_a_b(stack_a, 0);
-	// reverse_rotate_a_b(stack_b, 1);
-	// reverse_reverse_rotate_a_b(stack_a, stack_b);
+	push(stack_b, stack_a, 0);
+	push(stack_b, stack_a, 0);
+	// push(stack_b, stack_a, 0);
+	// push(stack_b, stack_a, 0);
+	// push(stack_b, stack_a, 0);
+	// swap(stack_a, 0);
+	// swap(stack_b, 1);
+	// swap_swap(stack_a, stack_b);
+	// push(stack_a, stack_b, 0);
+	// push(stack_a, stack_b, 1);
+	// rotate(stack_a, 0);
+	// rotate(stack_a, 1);
+	// rotate_rotate(stack_a);
+	// reverse_rotate(stack_a, 0);
+	// reverse_rotate(stack_b, 1);
+	// reverse_reverse_rotate(stack_a, stack_b);
 }
 //----------------------------------------------------------------------------------------------------------------------------
 
@@ -43,34 +43,18 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	
 	if (initialize_all(argc, argv, stack_a) == -1)
-		return (0);	
-	
-	// Sort -------------------------------------------------------	
-	
-	if (stack_a->size_a == 2 + 1 && stack_a->data > stack_a->next->data)
-		swap_a_b(&stack_a, 0);
-	
-	else if(stack_a->size_a == 3 + 1)
-	{
-		if (stack_a->next->next->data != 2)
-		{
-			if (stack_a->data == 2)
-				rotate_a_b(&stack_a, 0);
-			else
-				reverse_rotate_a_b(&stack_a, 0);
-		}
-		if (stack_a->data > stack_a->next->data)
-			swap_a_b(&stack_a, 0);
-	}
-	
-	
-	
-	// push_swap(&stack_a, &stack_b);
+		return (0);
+
+	int i;
+	i = get_stack_size(&stack_a);
+	printf("La taille de la stack est : %d\n", i);
+
+	int j;
+	j = get_max_bits(&stack_a);
+	printf("La plus grande taille binaire stack A est : %d\n", j);
 
 
-
-
-
+	radix_sort(&stack_a, &stack_b);
 
 
 

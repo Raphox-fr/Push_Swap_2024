@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:21:37 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/14 16:59:19 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/20 18:03:48 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,51 @@ int	ft_strlen(char *str)
 	while (str[i])
 		i++;
 	return (i);
+}
+
+int get_max_bits(t_stack **stack)
+{
+	int max;
+	int max_bits;
+	t_stack *stock;
+
+	stock = *stack;
+	max = stock->data;
+	max_bits = 0;
+
+	while (stock != NULL)
+	{
+		if (stock->data >= max)
+			max = stock->data;
+		stock = stock->next;
+	}
+	while (max >> max_bits)
+	{
+		max_bits++;
+	}
+	return (max_bits);
+}
+
+
+
+
+
+
+
+
+int	get_stack_size(t_stack **stack)
+{
+	int		size;
+	t_stack	*tmp;
+
+	size = 0;
+	tmp = *stack;
+	while (tmp != NULL)
+	{
+		tmp = tmp->next;
+		size++;
+	}
+	return (size);
 }
 
 //----------------------------------------------------------
@@ -129,8 +174,8 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	}
 	countall = ft_count_string(size, strs, sep);
 	tab = malloc((sizeof(char)) * (countall + 1));
-		if (tab == NULL)
-			return(tab);
+	if (tab == NULL)
+		return (tab);
 	if ((real_bruv(size, tab, strs, sep)) == tab)
 		return (tab);
 	return (tab);

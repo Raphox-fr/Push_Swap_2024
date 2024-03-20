@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:42:00 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/15 17:06:04 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/20 14:50:08 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap_a_b(t_stack **stack_a, int i)
+void	swap(t_stack **stack_a, int i)
 {
 	int	a;
 
@@ -25,14 +25,14 @@ void	swap_a_b(t_stack **stack_a, int i)
 		printf("sb\n");
 }
 
-void	swap_swap_a_b(t_stack **stack_a, t_stack **stack_b)
+void	swap_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	swap_a_b(stack_a, -1);
-	swap_a_b(stack_b, -1);
+	swap(stack_a, -1);
+	swap(stack_b, -1);
 	printf("ss\n");
 }
 //-------------------------------------------------------------
-void	push_a_b(t_stack **stack_a, t_stack **stack_b, int i)
+void	push(t_stack **stack_a, t_stack **stack_b, int i)
 {
 	t_stack	*tmp;
 
@@ -52,7 +52,7 @@ void	push_a_b(t_stack **stack_a, t_stack **stack_b, int i)
 }
 //-------------------------------------------------------------
 
-void	rotate_a_b(t_stack **stack_a_b, int i)
+void	rotate(t_stack **stack_a_b, int i)
 {
 	t_stack	*end_filler;
 	t_stack	*slide;
@@ -75,16 +75,16 @@ void	rotate_a_b(t_stack **stack_a_b, int i)
 		printf("rb\n");
 }
 
-void	rotate_rotate_a_b(t_stack **stack_a)
+void	rotate_rotate(t_stack **stack_a)
 {
-	rotate_a_b(stack_a, -1);
-	rotate_a_b(stack_a, -1);
+	rotate(stack_a, -1);
+	rotate(stack_a, -1);
 	printf("rr\n");
 }
 
 //-------------------------------------------------------------
 
-void	reverse_rotate_a_b(t_stack **stack_a_b, int i)
+void	reverse_rotate(t_stack **stack_a_b, int i)
 {
 	int		j;
 	t_stack	*slide;
@@ -98,7 +98,7 @@ void	reverse_rotate_a_b(t_stack **stack_a_b, int i)
 	}
 	while (j != 0)
 	{
-		rotate_a_b(stack_a_b, -1);
+		rotate(stack_a_b, -1);
 		j--;
 	}
 	if (i == 0)
@@ -109,7 +109,7 @@ void	reverse_rotate_a_b(t_stack **stack_a_b, int i)
 
 void	reverse_reverse_rotate_a_b(t_stack **stack_a, t_stack **stack_b)
 {
-	reverse_rotate_a_b(stack_a, -1);
-	reverse_rotate_a_b(stack_b, -1);
+	reverse_rotate(stack_a, -1);
+	reverse_rotate(stack_b, -1);
 	printf("rrr\n");
 }
