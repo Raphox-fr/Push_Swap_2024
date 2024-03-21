@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:56:40 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/20 17:54:58 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/21 16:31:40 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int is_sorted(t_stack **stack_a)
+{
+	int count;
+	count = 1;
+	t_stack *tmp;
+	tmp = *stack_a;
+	
+	while (tmp->next != NULL)
+	{
+		if (tmp->data < tmp->next->data)
+			count++;
+		tmp = tmp->next;
+	}
+	return (count);
+}
+
 
 void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 {

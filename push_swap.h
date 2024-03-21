@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/20 17:46:36 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/21 16:39:30 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_stack
 
 // Sorting--------------------------------------------------------------------------------
 
-void	radix_sort(t_stack **stack_a, t_stack **stack_b);
+void				radix_sort(t_stack **stack_a, t_stack **stack_b);
+int					is_sorted(t_stack **stack_a);
 
 // Annexe ---------------------------------------------------------------------------
 long int			ft_atoi(char *str);

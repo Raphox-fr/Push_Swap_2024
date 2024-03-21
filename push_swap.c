@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/20 17:55:48 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/21 17:29:40 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,33 @@ int	main(int argc, char **argv)
 	if (initialize_all(argc, argv, stack_a) == -1)
 		return (0);
 
+	if (is_sorted(&stack_a) == get_stack_size(&stack_a))
+		{
+			free_stack(&stack_a);
+			free_stack(&stack_b);
+			return (0);
+		}
+	
+	radix_sort(&stack_a, &stack_b);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//------------------------------------------------------------------------------------------------------------------
 	int i;
 	i = get_stack_size(&stack_a);
 	printf("La taille de la stack est : %d\n", i);
@@ -53,15 +80,11 @@ int	main(int argc, char **argv)
 	j = get_max_bits(&stack_a);
 	printf("La plus grande taille binaire stack A est : %d\n", j);
 
-
-	radix_sort(&stack_a, &stack_b);
-
-
-
+	int show_count;
+	show_count = is_sorted(&stack_a);
+	printf("Si le nombre correspond %d == %d\n", show_count, i);
 
 
-
-	//------------------------------------------------------------------------------------------------------------------
 	t_stack	*cur;
 	t_stack	*stock;
 
