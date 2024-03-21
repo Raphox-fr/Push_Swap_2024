@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/21 17:29:40 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/21 20:12:59 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,14 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 	
-	radix_sort(&stack_a, &stack_b);
+	// if (get_stack_size(&stack_a) <= 5)
+	// 	sort_less_5_args(&stack_a, &stack_b);
+	
+
+	
+	sort_less_5_args(&stack_a, &stack_b);
+
+	// radix_sort(&stack_a, &stack_b);
 
 
 

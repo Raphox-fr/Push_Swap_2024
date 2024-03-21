@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annexe.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:21:37 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/20 18:03:48 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/21 19:45:50 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,22 @@ int get_max_bits(t_stack **stack)
 	return (max_bits);
 }
 
+int get_max(t_stack **stack)
+{
+	int max;
+	t_stack *stock;
 
+	stock = *stack;
+	max = stock->data;
 
+	while (stock != NULL)
+	{
+		if (stock->data >= max)
+			max = stock->data;
+		stock = stock->next;
+	}
+	return (max);
+}
 
 
 

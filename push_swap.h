@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/21 16:39:30 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/21 19:43:55 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ typedef struct s_stack
 
 // Sorting--------------------------------------------------------------------------------
 
+int					sort_less_5_args(t_stack **stack_a, t_stack **stack_b);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b);
 int					is_sorted(t_stack **stack_a);
 
 // Annexe ---------------------------------------------------------------------------
+int					get_max(t_stack **stack);
 long int			ft_atoi(char *str);
 int					ft_strlen(char *str);
 int					get_max_bits(t_stack **stack);
