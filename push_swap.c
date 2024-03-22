@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/22 16:02:27 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/22 18:22:13 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,31 +52,23 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 	
-	if (get_stack_size(&stack_a) <= 5)
-	{
-		sort_less_5(&stack_a, &stack_b);
-	}
-	else
-	{
+	// if (get_stack_size(&stack_a) <= 5)
+	// {
+	// 	sort_less_5(&stack_a, &stack_b);
+	// }
+	// else
+	// {
 		radix_sort(&stack_a, &stack_b);
-	}
+	// }
 
-	// if (is_sorted(&stack_a) == get_stack_size(&stack_a))
-	// 	{
-	// 		free_stack(&stack_a);
-	// 		free_stack(&stack_b);
-	// 		return (0);
-	// 	}
+	// sort_negatives()
 
 
 
 
-
-
-
-
-
-
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	return (0);
 
 
 
@@ -87,39 +79,39 @@ int	main(int argc, char **argv)
 
 
 	//------------------------------------------------------------------------------------------------------------------
-	int i;
-	i = get_stack_size(&stack_a);
-	printf("La taille de la stack est : %d\n", i);
+	// int i;
+	// i = get_stack_size(&stack_a);
+	// printf("La taille de la stack est : %d\n", i);
 
-	int j;
-	j = get_max_bits(&stack_a);
-	printf("La plus grande taille binaire stack A est : %d\n", j);
+	// int j;
+	// j = get_max_bits(&stack_a);
+	// printf("La plus grande taille binaire stack A est : %d\n", j);
 
-	int show_count;
-	show_count = is_sorted(&stack_a);
-	printf("Si le nombre correspond %d == %d\n", show_count, i);
+	// int show_count;
+	// show_count = is_sorted(&stack_a);
+	// printf("Si le nombre correspond %d == %d\n", show_count, i);
 
 
-	t_stack	*cur;
-	t_stack	*stock;
+	// t_stack	*cur;
+	// t_stack	*stock;
 
-	printf("Stack A: ");
-	cur = stack_a;
-	while (cur != NULL)
-	{
-		printf("%d ", cur->data);
-		cur = cur->next;
-	}
-	printf("\n");
-	printf("Stack B: ");
-	stock = stack_b;
-	while (stock != NULL)
-	{
-		printf("%d ", stock->data);
-		stock = stock->next;
-	}
-	printf("\n");
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+	// printf("Stack A: ");
+	// cur = stack_a;
+	// while (cur != NULL)
+	// {
+	// 	printf("%d ", cur->data);
+	// 	cur = cur->next;
+	// }
+	// printf("\n");
+	// printf("Stack B: ");
+	// stock = stack_b;
+	// while (stock != NULL)
+	// {
+	// 	printf("%d ", stock->data);
+	// 	stock = stock->next;
+	// }
+	// printf("\n");
+	// free_stack(&stack_a);
+	// free_stack(&stack_b);
 	return (0);
 }

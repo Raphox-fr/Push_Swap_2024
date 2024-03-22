@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/19 16:34:28 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/22 18:29:54 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,14 @@ int initialize_all(int argc, char **argv, t_stack *stack_a)
 		return (-1);
 	}
 	
-	if (argc == 2)
+	if (argc >= 2)
 	{
 		joind_args = ft_strjoin(argc, argv, " ");
 		initializatiom_with_split(stack_a, joind_args);
 		free(joind_args);
 		return (1);
 	}
-	if (argc >= 3)
-	{
-		joind_args = ft_strjoin(argc, argv, " ");
-		initializatiom_with_split(stack_a, joind_args);
-		free(joind_args);
-		return (1);
-	}
-	else
-	{
-		return (0);
-	}
+	return (0);
 }
 
 
@@ -115,6 +105,7 @@ t_stack *add_to_end_linklist(t_stack *stack, char *value)
 	last_node->next = node;
 	node->prev = last_node;
 	node->next = NULL;
+	// free_stack(&node);
 	return (stack);
 }
 

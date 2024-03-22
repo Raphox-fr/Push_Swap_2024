@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:42:00 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/20 14:50:08 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/22 18:17:34 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	push(t_stack **stack_a, t_stack **stack_b, int i)
 }
 //-------------------------------------------------------------
 
-void	rotate(t_stack **stack_a_b, int i)
+void	rotate(t_stack **stack, int i)
 {
 	t_stack	*end_filler;
 	t_stack	*slide;
@@ -60,10 +60,10 @@ void	rotate(t_stack **stack_a_b, int i)
 	end_filler = malloc(sizeof(t_stack));
 	if (end_filler == NULL)
 		return ;
-	end_filler->data = (*stack_a_b)->data;
+	end_filler->data = (*stack)->data;
 	end_filler->next = NULL;
-	*stack_a_b = (*stack_a_b)->next;
-	slide = *stack_a_b;
+	*stack = (*stack)->next;
+	slide = *stack;
 	while (slide->next != NULL)
 	{
 		slide = slide->next;

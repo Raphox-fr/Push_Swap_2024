@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/22 15:43:10 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/22 18:18:10 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void				swap_swap(t_stack **stack_a, t_stack **stack_b);
 
 void				push(t_stack **stack_a, t_stack **stack_b, int i);
 
-void				rotate(t_stack **stack_a_b, int i);
+void				rotate(t_stack **stack, int i);
 void				rotate_rotate(t_stack **stack_a);
 
 void				reverse_rotate(t_stack **stack_a_b, int i);

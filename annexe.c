@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:21:37 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/22 15:44:35 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/22 18:32:26 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int	get_stack_size(t_stack **stack)
 		tmp = tmp->next;
 		size++;
 	}
+	// free(tmp);
 	return (size);
 }
 
