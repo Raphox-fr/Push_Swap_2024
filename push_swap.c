@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/21 20:12:59 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/22 16:02:27 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,22 @@ int	main(int argc, char **argv)
 			return (0);
 		}
 	
-	// if (get_stack_size(&stack_a) <= 5)
-	// 	sort_less_5_args(&stack_a, &stack_b);
-	
+	if (get_stack_size(&stack_a) <= 5)
+	{
+		sort_less_5(&stack_a, &stack_b);
+	}
+	else
+	{
+		radix_sort(&stack_a, &stack_b);
+	}
 
-	
-	sort_less_5_args(&stack_a, &stack_b);
+	// if (is_sorted(&stack_a) == get_stack_size(&stack_a))
+	// 	{
+	// 		free_stack(&stack_a);
+	// 		free_stack(&stack_b);
+	// 		return (0);
+	// 	}
 
-	// radix_sort(&stack_a, &stack_b);
 
 
 

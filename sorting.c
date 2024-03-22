@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:56:40 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/21 21:06:45 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/22 15:59:52 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,39 +28,57 @@ int is_sorted(t_stack **stack_a)
 	return (count);
 }
 
-int sort_less_5_args(t_stack **stack_a, t_stack **stack_b)
+int	sort_less_5(t_stack **stack_a, t_stack **stack_b)
+{
+	
+	while (get_stack_size(stack_a) > 0)
+	{
+		do_sort_less_5(stack_a, stack_b);
+	}
+	*stack_a = NULL;
+	while (get_stack_size(stack_b) > 0)
+	{
+		push(stack_a, stack_b, 1);
+	}
+	*stack_b = NULL;
+	
+	return (0);
+}
+
+
+
+
+
+
+
+
+
+int do_sort_less_5(t_stack **stack_a, t_stack **stack_b)
 {
 	int pin;
+	int localize_that_bitch;
 	t_stack *stock;
 
-	pin = 0;
 	stock = *stack_a;
-	int i;
-	i = get_stack_size(stack_a);
-
-	while (i != 1)
-	{
-		pin = get_max(stack_a);
-		printf("%d", pin);
+	pin = get_min(stack_a);
+	localize_that_bitch = 0;
+	printf("%d", pin);
 		
-		while (stock->next != NULL)
+	while (stock != NULL)
+	{
+		if (stock->data == pin)
 		{
-			if (stock->data == pin)
+			while (localize_that_bitch > 0)
 			{
-				*stack_a = stock;
-				push(stack_b, stack_a, 1);
-				break;
+				rotate(stack_a, 0);
+				localize_that_bitch--;
 			}
-			stock = stock->next;
+			push(stack_b, stack_a, 1);
 		}
-		i--;
+		localize_that_bitch++;
+		stock = stock->next;
 	}
-	*stack_a = new_stack(0);
-
-
 	return (0);
-	
-	
 }
 
 

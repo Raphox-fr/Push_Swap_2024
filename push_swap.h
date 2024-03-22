@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/21 19:43:55 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/22 15:43:10 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct s_stack
 
 // Sorting--------------------------------------------------------------------------------
 
-int					sort_less_5_args(t_stack **stack_a, t_stack **stack_b);
+int					sort_less_5(t_stack **stack_a, t_stack **stack_b);
+int					do_sort_less_5(t_stack **stack_a, t_stack **stack_b);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b);
 int					is_sorted(t_stack **stack_a);
 
@@ -46,6 +47,7 @@ int					get_max_bits(t_stack **stack);
 int					get_stack_size(t_stack **stack);
 char				*ft_strncpy(char *dest, char *src, unsigned int n);
 char				*ft_strjoin(int size, char **strs, char *sep);
+int					get_min(t_stack **stack);
 
 // Check args ---------------------------------------------------------------------------
 int					check_base(int argc, char **argv);
