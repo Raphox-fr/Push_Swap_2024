@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:42:00 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/22 18:17:34 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/23 17:08:31 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,17 @@ void	swap_swap(t_stack **stack_a, t_stack **stack_b)
 	printf("ss\n");
 }
 //-------------------------------------------------------------
+
 void	push(t_stack **stack_a, t_stack **stack_b, int i)
 {
 	t_stack	*tmp;
 
 	if (*stack_b != NULL)
 	{
-		tmp = *stack_b;// tmp prend la valeur 1 er element de B
-		*stack_b = (*stack_b)->next;// stack b = stack b est egal a son suivant donc le premier element est retirer
-		tmp->next = *stack_a;// La suite de tmp prend le reste de la stack_a
-		*stack_a = tmp;// tmp = (premier element de b) + la suite de a
+		tmp = *stack_b;
+		*stack_b = (*stack_b)->next;
+		tmp->next = *stack_a;
+		*stack_a = tmp;
 	}
 	else
 		return ;
@@ -81,35 +82,4 @@ void	rotate_rotate(t_stack **stack_a)
 	rotate(stack_a, -1);
 	printf("rr\n");
 }
-
 //-------------------------------------------------------------
-
-void	reverse_rotate(t_stack **stack_a_b, int i)
-{
-	int		j;
-	t_stack	*slide;
-
-	j = 0;
-	slide = *stack_a_b;
-	while (slide->next != NULL)
-	{
-		slide = slide->next;
-		j++;
-	}
-	while (j != 0)
-	{
-		rotate(stack_a_b, -1);
-		j--;
-	}
-	if (i == 0)
-		printf("rra\n");
-	else if (i == 1)
-		printf("rrb\n");
-}
-
-void	reverse_reverse_rotate_a_b(t_stack **stack_a, t_stack **stack_b)
-{
-	reverse_rotate(stack_a, -1);
-	reverse_rotate(stack_b, -1);
-	printf("rrr\n");
-}

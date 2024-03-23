@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:56:40 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/22 18:31:44 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/23 16:35:06 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_sorted(t_stack **stack_a)
+int	is_sorted(t_stack **stack_a)
 {
-	int count;
+	int		count;
+	t_stack	*tmp;
+
 	count = 1;
-	t_stack *tmp;
 	tmp = *stack_a;
-	
 	while (tmp->next != NULL)
 	{
 		if (tmp->data < tmp->next->data)
@@ -30,7 +30,6 @@ int is_sorted(t_stack **stack_a)
 
 int	sort_less_5(t_stack **stack_a, t_stack **stack_b)
 {
-	
 	while (get_stack_size(stack_a) > 0)
 	{
 		do_sort_less_5(stack_a, stack_b);
@@ -41,29 +40,19 @@ int	sort_less_5(t_stack **stack_a, t_stack **stack_b)
 		push(stack_a, stack_b, 1);
 	}
 	*stack_b = NULL;
-	
 	return (0);
 }
 
-
-
-
-
-
-
-
-
-int do_sort_less_5(t_stack **stack_a, t_stack **stack_b)
+int	do_sort_less_5(t_stack **stack_a, t_stack **stack_b)
 {
-	int pin;
-	int localize_that_bitch;
-	t_stack *stock;
+	int		pin;
+	int		localize_that_bitch;
+	t_stack	*stock;
 
 	stock = *stack_a;
 	pin = get_min(stack_a);
 	localize_that_bitch = 0;
 	printf("%d", pin);
-		
 	while (stock != NULL)
 	{
 		if (stock->data == pin)
@@ -81,54 +70,18 @@ int do_sort_less_5(t_stack **stack_a, t_stack **stack_b)
 	return (0);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int index_bits;
-	int j;
-	int size;
-	t_stack *stock;
-	int max_bits;
+	int		index_bits;
+	int		j;
+	int		size;
+	t_stack	*stock;
+	int		max_bits;
 
 	index_bits = 0;
-	j = 0;
 	stock = *stack_a;
 	size = get_stack_size(&stock);
 	max_bits = get_max_bits(stack_a);
-	
 	while (index_bits < max_bits)
 	{
 		j = 0;
@@ -141,9 +94,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 				push(stack_b, stack_a, 1);
 		}
 		while (get_stack_size(stack_b) != 0)
-		{
 			push(stack_a, stack_b, 0);
-		}
 		index_bits++;
 	}
 }
