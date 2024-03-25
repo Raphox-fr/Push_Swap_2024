@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:42:00 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/23 17:08:31 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:50:08 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,31 +55,28 @@ void	push(t_stack **stack_a, t_stack **stack_b, int i)
 
 void	rotate(t_stack **stack, int i)
 {
-	t_stack	*end_filler;
-	t_stack	*slide;
+	t_stack	*stock;
+	t_stack	*end;
 
-	end_filler = malloc(sizeof(t_stack));
-	if (end_filler == NULL)
+	if (get_stack_size(stack) <= 1)
 		return ;
-	end_filler->data = (*stack)->data;
-	end_filler->next = NULL;
+	stock = *stack;
 	*stack = (*stack)->next;
-	slide = *stack;
-	while (slide->next != NULL)
-	{
-		slide = slide->next;
-	}
-	slide->next = end_filler;
+	end = get_stack_bottom(*stack);
+	stock->next = NULL;
+	end->next = stock;
 	if (i == 0)
 		printf("ra\n");
 	else if (i == 1)
 		printf("rb\n");
 }
 
-void	rotate_rotate(t_stack **stack_a)
+void	rotate_rotate(t_stack **stack_a, t_stack **stack_b)
 {
-	rotate(stack_a, -1);
-	rotate(stack_a, -1);
+	if (get_stack_size(stack_a) > 1)
+		rotate(stack_a, -1);
+	if (get_stack_size(stack_b) > 1)
+		rotate(stack_b, -1);
 	printf("rr\n");
 }
 //-------------------------------------------------------------

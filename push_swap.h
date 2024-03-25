@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/23 19:15:47 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:54:05 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,13 @@ void				swap_swap(t_stack **stack_a, t_stack **stack_b);
 void				push(t_stack **stack_a, t_stack **stack_b, int i);
 
 void				rotate(t_stack **stack, int i);
-void				rotate_rotate(t_stack **stack_a);
+void				rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 
 void				reverse_rotate(t_stack **stack_a_b, int i);
 void				reverse_reverse_rotate(t_stack **stack_a,
 						t_stack **stack_b);
+t_stack				*get_stack_bottom(t_stack *stack);
+int					ft_strlen(char *str);
 
 // Initialization --------------
 

@@ -3,28 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   move2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:07:45 by raphox            #+#    #+#             */
-/*   Updated: 2024/03/23 17:08:05 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:53:55 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
+}
+
+t_stack	*get_stack_bottom(t_stack *stack)
+{
+	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
 void	reverse_rotate(t_stack **stack_a_b, int i)
 {
 	int		j;
-	t_stack	*slide;
 
-	j = 0;
-	slide = *stack_a_b;
-	while (slide->next != NULL)
-	{
-		slide = slide->next;
-		j++;
-	}
-	while (j != 0)
+	j = get_stack_size(stack_a_b);
+	if (j == 0 || j == 1)
+		return ;
+	while (j != 1)
 	{
 		rotate(stack_a_b, -1);
 		j--;
@@ -35,7 +47,7 @@ void	reverse_rotate(t_stack **stack_a_b, int i)
 		printf("rrb\n");
 }
 
-void	reverse_reverse_rotate_a_b(t_stack **stack_a, t_stack **stack_b)
+void	reverse_reverse_rotate(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate(stack_a, -1);
 	reverse_rotate(stack_b, -1);

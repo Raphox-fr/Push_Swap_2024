@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:56:40 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/23 16:35:06 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/25 16:44:00 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int	do_sort_less_5(t_stack **stack_a, t_stack **stack_b)
 	stock = *stack_a;
 	pin = get_min(stack_a);
 	localize_that_bitch = 0;
-	printf("%d", pin);
 	while (stock != NULL)
 	{
 		if (stock->data == pin)
