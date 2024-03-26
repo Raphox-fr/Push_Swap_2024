@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/26 18:40:07 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/26 23:03:18 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,6 @@ int	main(int argc, char **argv)
 		free_stack(&stack_b);
 		return (0);
 	}
-	// push(&stack_b, &stack_a, 1);
-	// push(&stack_b, &stack_a, 1);
-	// push(&stack_b, &stack_a, 1);
-	// push(&stack_b, &stack_a, 1);
-	// push(&stack_b, &stack_a, 1);
-	
-	// rotate_rotate(&stack_a, &stack_b); // good
-	// reverse_reverse_rotate(&stack_a, &stack_b); good
-	// reverse_rotate(&stack_a, 0); // good
-	// reverse_rotate(&stack_b, 0); // good
 	
 	int blyat;
 	blyat = count_negative(&stack_a);
@@ -52,6 +42,8 @@ int	main(int argc, char **argv)
 		radix_sort(&stack_a, &stack_b);
 	}
 	push_negative(&stack_a, &stack_b);
+	negative_to_positive(&stack_a, &stack_b);
+
 	
 	
 
@@ -88,6 +80,16 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
+	// push(&stack_b, &stack_a, 1);
+	// push(&stack_b, &stack_a, 1);
+	// push(&stack_b, &stack_a, 1);
+	// push(&stack_b, &stack_a, 1);
+	// push(&stack_b, &stack_a, 1);
+	
+	// rotate_rotate(&stack_a, &stack_b); // good
+	// reverse_reverse_rotate(&stack_a, &stack_b); good
+	// reverse_rotate(&stack_a, 0); // good
+	// reverse_rotate(&stack_b, 0); // good
 
 
 // #include "push_swap.h"

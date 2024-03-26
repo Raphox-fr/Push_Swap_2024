@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/26 18:04:46 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/26 23:04:10 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ t_stack	*add_negative_to_end_linklist(t_stack *stack, char *value)
 		return (0);
 	node->sign = 1;
 	node->data = ft_atoi(value) * -1;
+	node->negative_data = ft_atoi(value);
 	node->prev = NULL;
 	node->next = NULL;
 	last_node = stack;

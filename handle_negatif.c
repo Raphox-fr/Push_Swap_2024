@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_negatif.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:23:54 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/26 18:38:51 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/26 23:15:46 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,24 @@ void	push_negative(t_stack **stack_a, t_stack **stack_b)
 	}
 	
 }
+void	negative_to_positive(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *stock;
+	int stack_size;
+	
+	
+	stock = *stack_b;	
+	stack_size = get_stack_size(stack_b);
+	while (stack_size != 0)
+	{
+		stock = *stack_b;
+		reverse_rotate(stack_b, 1);
+		stock->data = stock->negative_data;
+		push(stack_a, stack_b, 0);
+		stock = stock->next;
+		stack_size--;
+	}
+}
 
 // {
 // 	int		index_bits;
@@ -79,10 +97,6 @@ void	push_negative(t_stack **stack_a, t_stack **stack_b)
 // 	}
 // }
 
-// void	negative_to_positive(t_stack **stack_a, t_stack **stack_b)
-// {
-	
-// }
 
 // void	push_negative_to_stack_b(t_stack **stack_a, t_stack **stack_b)
 // {

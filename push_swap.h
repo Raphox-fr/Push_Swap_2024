@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/26 18:23:07 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/03/26 23:02:34 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_stack
 {
 	int				data;
+	int				negative_data;
 	int				size_a;
 	int				index;
 	int				sign;
@@ -87,7 +88,7 @@ int					initializatiom_with_split(t_stack *stack_a, char *str);
 
 int					count_negative(t_stack **stack_a);
 void				push_negative(t_stack **stack_a, t_stack **stack_b);
-// void				negative_to_positive(t_stack **stack_a, t_stack **stack_b);
+void				negative_to_positive(t_stack **stack_a, t_stack **stack_b);
 // void				push_negative_to_stack_b(t_stack **stack_a,
 // 						t_stack **stack_b);
 // void				turn_stack_b_to_negative(t_stack **stack_a,
