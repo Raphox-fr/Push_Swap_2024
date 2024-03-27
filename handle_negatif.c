@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_negatif.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:23:54 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/26 23:15:46 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/27 13:34:14 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,22 +52,19 @@ void	push_negative(t_stack **stack_a, t_stack **stack_b)
 }
 void	negative_to_positive(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *stock;
 	int stack_size;
-	
-	
-	stock = *stack_b;	
+
 	stack_size = get_stack_size(stack_b);
 	while (stack_size != 0)
 	{
-		stock = *stack_b;
 		reverse_rotate(stack_b, 1);
-		stock->data = stock->negative_data;
+		(*stack_b)->data = (*stack_b)->negative_data;
 		push(stack_a, stack_b, 0);
-		stock = stock->next;
 		stack_size--;
 	}
 }
+
+
 
 // {
 // 	int		index_bits;

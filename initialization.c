@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/26 23:04:10 by raphox           ###   ########.fr       */
+/*   Updated: 2024/03/27 14:02:29 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,14 @@ int	initializatiom_with_split(t_stack *stack_a, char *str)
 	}
 	if (string[1][0] == '-')
 	{
+		stack_a->negative_data = ft_atoi(string[1]);
 		stack_a->data = (ft_atoi(string[1]) * -1);
 		stack_a->sign = 1;
 	}
 	else
+	{
 		stack_a->data = ft_atoi(string[1]);
+	}
 	stack_a->size_a = count_elements;
 	if (count_elements > 2)
 	{

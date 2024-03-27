@@ -57,12 +57,12 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "files.associations": {
-	"push_swap.h": "c",
-	"string.h": "c",
-	"stdlib.h": "c",
-	"array": "c",
-	"string": "c",
-	"string_view": "c",
-	"random": "c"
-}
+    "push_swap.h": "c",
+    "string.h": "c",
+    "stdlib.h": "c",
+    "array": "c",
+    "string": "c",
+    "string_view": "c",
+    "random": "c"
+  }
 }
