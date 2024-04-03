@@ -6,103 +6,99 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:56:25 by raphox            #+#    #+#             */
-/*   Updated: 2024/03/27 13:17:40 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/03 17:09:24 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+#include <stdlib.h>
+#include <stdio.h>
+
 size_t	count_words(char *s, char c)
 {
-	size_t	count;
-	size_t	i;
+	int		i;
+	int		words;
 
-	count = 0;
 	i = 0;
-	while (*(s + i))
+	words = 0;
+	if (s[0] == c || s[ft_strlen((char *)s)] == c)
 	{
-		if (*(s + i) != c)
-		{
-			count++;
-			while (*(s + i) && *(s + i) != c)
-				i++;
-		}
-		else if (*(s + i) == c)
-			i++;
+		while (s[i] == c)
+			i ++;
 	}
-	return (count);
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			words ++;
+			i ++;
+			while (s[i] == c)
+				i ++;
+		}
+		else
+			i ++;
+	}
+	if (s[ft_strlen((char *)s) - 1] != c)
+		words ++;
+	return (words);
 }
 
-static size_t	get_word_len(char *s, char c)
+static int	count_letters(char *s, char c)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (*(s + i) && *(s + i) != c)
-		i++;
+	while (s[i] != c && s[i])
+		i ++;
 	return (i);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+static char	*create_tab2(const char *s, char c)
 {
-	size_t	i;
-	size_t	j;
-	char	*str;
+	int		j;
+	char	*tab2;
+	int		mem;
+	int		i;
 
-	str = (char *)malloc(sizeof(*s) * (len + 1));
-	if (!str)
-		return (NULL);
+	mem = (count_letters((char *)s, c));
+	tab2 = NULL;
 	i = 0;
 	j = 0;
-	while (s[i])
-	{
-		if (i >= start && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
-		i++;
-	}
-	str[j] = 0;
-	return (str);
-}
-
-static char	**split(char *s, char c, char **array, size_t words_count)
-{
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while (i < words_count)
-	{
-		while (*(s + j) && *(s + j) == c)
-			j++;
-		*(array + i) = ft_substr(s, j, get_word_len(&*(s + j), c));
-		if (!*(array + i))
-		{
-			free_array(i, array);
-			return (NULL);
-		}
-		while (*(s + j) && *(s + j) != c)
-			j++;
-		i++;
-	}
-	*(array + i) = NULL;
-	return (array);
+	tab2 = malloc((mem + 1) * sizeof(char));
+	if (!tab2)
+		free (tab2);
+	while (i < mem && s[i])
+		tab2[j++] = s[i++];
+	tab2[j] = '\0';
+	return (tab2);
 }
 
 char	**ft_split(char *s, char c)
 {
-	char	**array;
-	size_t	words;
+	int		i;
+	int		len_s;
+	int		words;
+	char	**tab;
 
-	if (!s)
+	i = 0;
+	if (s[i])
+		words = count_words(s, c);
+	else
+		words = 0;
+	tab = malloc((words + 1) * sizeof(char *));
+	if (!tab)
 		return (NULL);
-	words = count_words(s, c);
-	array = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!array)
-		return (NULL);
-	array = split(s, c, array, words);
-	return (array);
+	len_s = 0;
+	while (i < words)
+	{
+		while (s[len_s] == c)
+			len_s ++;
+		tab[i] = create_tab2(&s[len_s], c);
+		if (!tab[i])
+			free (tab[i]);
+		len_s += ft_strlen(tab[i++]);
+	}
+	tab[i] = "NULL";
+	return (tab);
 }

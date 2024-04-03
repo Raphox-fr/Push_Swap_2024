@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/30 16:45:29 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/03 15:56:00 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ int	main(int argc, char **argv)
 	// }
 	radix_sort(&stack_a, &stack_b);
 	
+	// printf("\n\n\n");
+	// int bisou;
+	// bisou = ft_atoi("-7");
+
+	// printf("%d", bisou);
 	
 	// push_negative(&stack_a, &stack_b);
 	// negative_to_positive(&stack_a, &stack_b);
