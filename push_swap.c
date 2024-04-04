@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/03 15:56:00 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/04 15:19:52 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,19 @@ int	main(int argc, char **argv)
 	}
 
 
+	radix_sort(&stack_a, &stack_b);
+	
+	
+	free_stack(&stack_a);
+	free_stack(&stack_b);
+	return (0);
+	
+}
+
+	
+	
+	
+	
 	// int blyat;
 	// blyat = count_negative(&stack_a);
 	// printf("%d", blyat);
@@ -40,7 +53,6 @@ int	main(int argc, char **argv)
 	// {
 	// 	sort_less_5(&stack_a, &stack_b);
 	// }
-	radix_sort(&stack_a, &stack_b);
 	
 	// printf("\n\n\n");
 	// int bisou;
@@ -69,12 +81,8 @@ int	main(int argc, char **argv)
 	// 	stock = stock->next;
 	// }
 	// printf("\n");
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	return (0);
 	
-}
-
+//----------------------------------------------------
 	//complexity
 
 
