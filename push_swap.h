@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/30 16:58:40 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/05 15:59:15 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <strings.h>
 # include <unistd.h>
+
 
 // Structure ----------------------
 typedef struct s_stack
@@ -54,6 +55,7 @@ int					get_min(t_stack **stack);
 // Check args -------------------
 int					check_base(int argc, char **str);
 int					chck(char *str);
+int					is_valid_number(char *str);
 
 // Moves ------------------------
 // i = 0 = Stack_a | i = 1 = Stack_b | i = -1 Print rien
@@ -76,8 +78,8 @@ int					ft_strlen(char *str);
 
 int					initialize_all(int argc, char **argv, t_stack *stack_a);
 
+int			count_words(char *str, char c);
 t_stack				*new_stack(int value);
-size_t				count_words(char *s, char c);
 char				**ft_split(char *s, char c);
 int					get_words_count(char *str, char *charset);
 t_stack				*add_to_end_linklist(t_stack *stack, char *data);

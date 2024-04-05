@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   annexe.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:21:37 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/23 18:55:14 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/05 18:52:43 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ long int	ft_atoi(char *str)
 	i = 0;
 	neg = 1;
 	num = 0;
-	while (str[i] <= ' ')
+	while (str[i] <= ' ' || str[i] == 9)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/04 15:19:52 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/05 15:15:13 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,27 @@ int	main(int argc, char **argv)
 
 
 	radix_sort(&stack_a, &stack_b);
+	// push_negative(&stack_a, &stack_b);
+	// negative_to_positive(&stack_a, &stack_b);
+	
+	t_stack	*cur;
+	t_stack	*stock;
+	printf("Stack A: ");
+	cur = stack_a;
+	while (cur != NULL)
+	{
+		printf("%d ", cur->data);
+		cur = cur->next;
+	}
+	printf("\n");
+	printf("Stack B: ");
+	stock = stack_b;
+	while (stock != NULL)
+	{
+		printf("%d ", stock->data);
+		stock = stock->next;
+	}
+	printf("\n");
 	
 	
 	free_stack(&stack_a);
@@ -42,7 +63,13 @@ int	main(int argc, char **argv)
 
 	
 	
-	
+
+
+
+
+
+
+
 	
 	// int blyat;
 	// blyat = count_negative(&stack_a);
@@ -60,27 +87,6 @@ int	main(int argc, char **argv)
 
 	// printf("%d", bisou);
 	
-	// push_negative(&stack_a, &stack_b);
-	// negative_to_positive(&stack_a, &stack_b);
-	
-	// t_stack	*cur;
-	// t_stack	*stock;
-	// printf("Stack A: ");
-	// cur = stack_a;
-	// while (cur != NULL)
-	// {
-	// 	printf("%d ", cur->data);
-	// 	cur = cur->next;
-	// }
-	// printf("\n");
-	// printf("Stack B: ");
-	// stock = stack_b;
-	// while (stock != NULL)
-	// {
-	// 	printf("%d ", stock->data);
-	// 	stock = stock->next;
-	// }
-	// printf("\n");
 	
 //----------------------------------------------------
 	//complexity

@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:56:25 by raphox            #+#    #+#             */
-/*   Updated: 2024/04/03 17:09:24 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/05 18:50:19 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,91 +14,96 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-
-size_t	count_words(char *s, char c)
-{
-	int		i;
-	int		words;
-
-	i = 0;
-	words = 0;
-	if (s[0] == c || s[ft_strlen((char *)s)] == c)
-	{
-		while (s[i] == c)
-			i ++;
-	}
-	while (s[i])
-	{
-		if (s[i] == c)
-		{
-			words ++;
-			i ++;
-			while (s[i] == c)
-				i ++;
-		}
-		else
-			i ++;
-	}
-	if (s[ft_strlen((char *)s) - 1] != c)
-		words ++;
-	return (words);
-}
-
-static int	count_letters(char *s, char c)
+ 
+int	count_words(char *str, char c)
 {
 	int	i;
+	int	count;
 
 	i = 0;
-	while (s[i] != c && s[i])
-		i ++;
-	return (i);
+	count = 0;
+	while (str[i])
+	{
+		if (str[i] && (str[i] != c && str[i] != 9))
+		{
+			count++;
+			while (str[i] && (str[i] != c && str[i] != 9))
+				i++;
+		}
+		else
+			i++;
+	}
+	return (count);
 }
 
-static char	*create_tab2(const char *s, char c)
+static int	ft_charcount(char *s, int index, char c)
 {
-	int		j;
-	char	*tab2;
-	int		mem;
-	int		i;
+	int	count;
 
-	mem = (count_letters((char *)s, c));
-	tab2 = NULL;
+	count = 0;
+	while (s[index] && s[index] != c)
+	{
+		count++;
+		index++;
+	}
+	return (count);
+}
+
+static char	*ft_strndup_custom(char *s, int *retindex, int index, int n)
+{
+	int		i;
+	char	*dup;
+
 	i = 0;
-	j = 0;
-	tab2 = malloc((mem + 1) * sizeof(char));
-	if (!tab2)
-		free (tab2);
-	while (i < mem && s[i])
-		tab2[j++] = s[i++];
-	tab2[j] = '\0';
-	return (tab2);
+	dup = malloc(sizeof(char) * (n + 1));
+	if (!dup)
+		return (NULL);
+	while (s[index] && i < n)
+	{
+		dup[i] = s[index];
+		i++;
+		index++;
+	}
+	*retindex = index;
+	dup[i] = '\0';
+	return (dup);
+}
+
+static void	ft_free(char **strs, int i)
+{
+	while (i >= 0)
+	{
+		free(strs[i]);
+		i--;
+	}
+	free(strs);
 }
 
 char	**ft_split(char *s, char c)
 {
 	int		i;
-	int		len_s;
-	int		words;
-	char	**tab;
+	int		j;
+	int		wordcount;
+	char	**splitter;
 
-	i = 0;
-	if (s[i])
-		words = count_words(s, c);
-	else
-		words = 0;
-	tab = malloc((words + 1) * sizeof(char *));
-	if (!tab)
+	if (!s)
 		return (NULL);
-	len_s = 0;
-	while (i < words)
+	i = 0;
+	j = 0;
+	wordcount = count_words(s, c);
+	splitter = malloc(sizeof(char *) * (wordcount + 1));
+	if (!splitter)
+		return (NULL);
+	while (j < wordcount)
 	{
-		while (s[len_s] == c)
-			len_s ++;
-		tab[i] = create_tab2(&s[len_s], c);
-		if (!tab[i])
-			free (tab[i]);
-		len_s += ft_strlen(tab[i++]);
+		if (s[i] != c)
+		{
+			splitter[j] = ft_strndup_custom(s, &i, i, ft_charcount(s, i, c));
+			if (!splitter[j++])
+				return (ft_free(splitter, j - 1), NULL);
+		}
+		i++;
 	}
-	tab[i] = "NULL";
-	return (tab);
+	splitter[j] = 0;
+	return (splitter);
 }
