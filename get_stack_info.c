@@ -6,16 +6,16 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:53:46 by raphox            #+#    #+#             */
-/*   Updated: 2024/03/23 18:57:08 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/08 19:54:51 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_max_bits(t_stack **stack)
+long int	get_max_bits(t_stack **stack)
 {
-	int		max;
-	int		max_bits;
+	long int		max;
+	long int		max_bits;
 	t_stack	*stock;
 
 	stock = *stack;
@@ -36,7 +36,7 @@ int	get_max_bits(t_stack **stack)
 
 int	get_max(t_stack **stack)
 {
-	int		max;
+	long int		max;
 	t_stack	*stock;
 
 	stock = *stack;
@@ -52,7 +52,7 @@ int	get_max(t_stack **stack)
 
 int	get_min(t_stack **stack)
 {
-	int		max;
+	long int		max;
 	t_stack	*stock;
 
 	stock = *stack;

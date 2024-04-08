@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/05 15:59:15 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/08 19:54:31 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,14 @@
 # include <strings.h>
 # include <unistd.h>
 
-
 // Structure ----------------------
 typedef struct s_stack
 {
-	int				data;
-	int				negative_data;
-	int				size_a;
-	int				index;
-	int				sign;
+	long int		data;
+	long int		size_a;
+	long int		index;
+	long int		sign;
+	long int		negative_data;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 
@@ -42,11 +41,14 @@ int					do_sort_less_5(t_stack **stack_a, t_stack **stack_b);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b);
 int					is_sorted(t_stack **stack_a);
 
+void				sort_three_elements(t_stack **stack_a);
+int					sort_3_elements(t_stack **stack_a);
+
 // Annexe -----------------------
 int					get_max(t_stack **stack);
 long int			ft_atoi(char *str);
 int					ft_strlen(char *str);
-int					get_max_bits(t_stack **stack);
+long int					get_max_bits(t_stack **stack);
 int					get_stack_size(t_stack **stack);
 char				*ft_strncpy(char *dest, char *src, unsigned int n);
 char				*ft_strjoin(int size, char **strs, char *sep);
@@ -56,6 +58,7 @@ int					get_min(t_stack **stack);
 int					check_base(int argc, char **str);
 int					chck(char *str);
 int					is_valid_number(char *str);
+int					is_exception_number(char *str);
 
 // Moves ------------------------
 // i = 0 = Stack_a | i = 1 = Stack_b | i = -1 Print rien
@@ -78,7 +81,7 @@ int					ft_strlen(char *str);
 
 int					initialize_all(int argc, char **argv, t_stack *stack_a);
 
-int			count_words(char *str, char c);
+int					count_words(char *str, char c);
 t_stack				*new_stack(int value);
 char				**ft_split(char *s, char c);
 int					get_words_count(char *str, char *charset);

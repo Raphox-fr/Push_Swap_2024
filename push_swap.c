@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/05 15:15:13 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/08 23:19:57 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,39 +30,41 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 
+	if (get_stack_size(&stack_a) == 3)
+		sort_3_elements(&stack_a);
+	else
+	{
+		radix_sort(&stack_a, &stack_b);
+		push_negative(&stack_a, &stack_b);
+		negative_to_positive(&stack_a, &stack_b);
+	}
+	
+	
+	
+	// t_stack	*cur;
+	// t_stack	*stock;
+	// printf("Stack A: ");
+	// cur = stack_a;
+	// while (cur != NULL)
+	// {
+	// 	printf("%ld ", cur->data);
+	// 	cur = cur->next;
+	// }
+	// printf("\n");
+	// printf("Stack B: ");
+	// stock = stack_b;
+	// while (stock != NULL)
+	// {
+	// 	printf("%ld ", stock->data);
+	// 	stock = stock->next;
+	// }
+	// printf("\n");
 
-	radix_sort(&stack_a, &stack_b);
-	// push_negative(&stack_a, &stack_b);
-	// negative_to_positive(&stack_a, &stack_b);
-	
-	t_stack	*cur;
-	t_stack	*stock;
-	printf("Stack A: ");
-	cur = stack_a;
-	while (cur != NULL)
-	{
-		printf("%d ", cur->data);
-		cur = cur->next;
-	}
-	printf("\n");
-	printf("Stack B: ");
-	stock = stack_b;
-	while (stock != NULL)
-	{
-		printf("%d ", stock->data);
-		stock = stock->next;
-	}
-	printf("\n");
-	
-	
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	return (0);
-	
 }
 
-	
-	
 
 
 
@@ -70,7 +72,8 @@ int	main(int argc, char **argv)
 
 
 
-	
+	// sort_three_elements(&stack_a);
+
 	// int blyat;
 	// blyat = count_negative(&stack_a);
 	// printf("%d", blyat);
@@ -87,6 +90,9 @@ int	main(int argc, char **argv)
 
 	// printf("%d", bisou);
 	
+	// reverse_rotate(&stack_a, 0);
+	// swap(&stack_a, 0);
+	// rotate(&stack_a, 0);
 	
 //----------------------------------------------------
 	//complexity
