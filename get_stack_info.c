@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:53:46 by raphox            #+#    #+#             */
-/*   Updated: 2024/04/10 17:25:42 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 21:19:36 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ long int	get_max_bits(t_stack **stack)
 	t_stack	*stock;
 
 	stock = *stack;
-	max = stock->data;
+	max = stock->index;
 	max_bits = 0;
 	while (stock != NULL)
 	{
-		if (stock->data >= max)
-			max = stock->data;
+		if (stock->index >= max)
+			max = stock->index;
 		stock = stock->next;
 	}
 	while (max >> max_bits)
@@ -87,7 +87,9 @@ int	get_min_position(t_stack **stack)
 	while (stack_to_find != NULL)
 	{
 		if (stack_to_find->data == min)
+		{
 			return (localize);
+		}
 		localize++;
 		stack_to_find = stack_to_find->next;
 	}

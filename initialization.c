@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/10 11:53:27 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 21:15:45 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	initializatiom_with_split(t_stack *stack_a, char *str)
 	
 	stack_a->data = ft_atoi(string[1]);
 	stack_a->sign = 0;
+	stack_a->index = -1;
 	stack_a->size_a = count_elements;
 	
 	if (count_elements > 2)
@@ -86,30 +87,7 @@ t_stack	*add_to_end_linklist(t_stack *stack, char *value)
 		return (0);
 	node->sign = 0;
 	node->data = ft_atoi(value);
-	node->prev = NULL;
-	node->next = NULL;
-	last_node = stack;
-	while (last_node->next != NULL)
-	{
-		last_node = last_node->next;
-	}
-	last_node->next = node;
-	node->prev = last_node;
-	node->next = NULL;
-	return (stack);
-}
-
-t_stack	*add_negative_to_end_linklist(t_stack *stack, char *value)
-{
-	t_stack	*node;
-	t_stack	*last_node;
-
-	node = malloc(sizeof(t_stack));
-	if (node == NULL)
-		return (0);
-	node->sign = 1;
-	node->data = ft_atoi(value) * -1;
-	node->negative_data = ft_atoi(value);
+	node->index = -1;
 	node->prev = NULL;
 	node->next = NULL;
 	last_node = stack;

@@ -3,14 +3,96 @@
 /*                                                        :::      ::::::::   */
 /*   handle_negatif.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:23:54 by rafaria           #+#    #+#             */
-/*   Updated: 2024/03/27 13:34:14 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/10 21:14:10 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+int	get_min_for_index(t_stack **stack)
+{
+	long int		max;
+	t_stack	*stock;
+
+	stock = *stack;
+	max = get_max(stack);
+	while (stock != NULL)
+	{
+		if (stock->data <= max && stock->index == -1)
+			max = stock->data;
+		stock = stock->next;
+	}
+	return (max);
+}
+
+int	get_min_position_for_index(t_stack **stack, int index)
+{
+	int localize;
+	int long min;
+	t_stack	*stack_to_find;
+
+	min = get_min_for_index(stack);
+	localize = 1;
+	stack_to_find = *stack;
+	
+	while (stack_to_find != NULL)
+	{
+		if (stack_to_find->data == min)
+		{
+			stack_to_find->index = index;
+			return (localize);
+		}
+		localize++;
+		stack_to_find = stack_to_find->next;
+	}
+		// printf("la position du max est ici : %d", localize);
+	return (0);
+}
+
+
+int index_the_index(t_stack **stack_a)
+{
+	int i;
+	int index;
+	index = 0;
+	i = get_stack_size(stack_a);
+	printf(" zeub : %d \n", i);
+	while (i > 0)
+	{
+		get_min_position_for_index(stack_a, index);
+		index++;
+		i--;
+	}
+	return (0);
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int	count_negative(t_stack **stack_a)
 {
@@ -63,44 +145,3 @@ void	negative_to_positive(t_stack **stack_a, t_stack **stack_b)
 		stack_size--;
 	}
 }
-
-
-
-// {
-// 	int		index_bits;
-// 	int		j;
-// 	int		size;
-// 	t_stack	*stock;
-// 	int		max_bits;
-
-// 	index_bits = 0;
-// 	stock = *stack_a;
-// 	size = get_stack_size(&stock);
-// 	max_bits = get_max_bits(stack_a);
-// 	while (index_bits < max_bits)
-// 	{
-// 		j = 0;
-// 		while (j++ < size)
-// 		{
-// 			stock = *stack_a;
-// 			if (((stock->data >> index_bits) & 1) == 1)
-// 				rotate(stack_a, 0);
-// 			else
-// 				push(stack_b, stack_a, 1);
-// 		}
-// 		while (get_stack_size(stack_b) != 0)
-// 			push(stack_a, stack_b, 0);
-// 		index_bits++;
-// 	}
-// }
-
-
-// void	push_negative_to_stack_b(t_stack **stack_a, t_stack **stack_b)
-// {
-	
-// }
-
-// void	turn_stack_b_to_negative(t_stack **stack_a,t_stack **stack_b)
-// {
-	
-// }

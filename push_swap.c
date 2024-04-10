@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/10 18:05:40 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 21:23:31 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	// int negatives;
-	// negatives = count_negative();
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
@@ -39,13 +37,24 @@ int	main(int argc, char **argv)
 	else if (get_stack_size(&stack_a) == 5)
 		sort_5_elements(&stack_a, &stack_b);
 	else if (get_stack_size(&stack_a) > 5)
+	{
+		index_the_index(&stack_a);
 		radix_sort(&stack_a, &stack_b);
+	}
+
+
+
+
+
+
+
+
 
 	
 	printf("-------------\n");
 	t_stack	*cur;
 	t_stack	*stock;
-	printf("Stack A: ");
+	printf("Stack A : ");
 	cur = stack_a;
 	while (cur != NULL)
 	{

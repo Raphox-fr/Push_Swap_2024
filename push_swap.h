@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/10 17:41:16 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 20:56:32 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 	long int		index;
 	long int		sign;
 	long int		negative_data;
+
 	struct s_stack	*next;
 	struct s_stack	*prev;
 
@@ -46,6 +47,7 @@ int					is_sorted(t_stack **stack_a);
 
 int					get_max_position(t_stack **stack);
 int					get_min_position(t_stack **stack);
+
 // Annexe -----------------------
 int					get_max(t_stack **stack);
 long int			ft_atoi(char *str);
@@ -92,6 +94,10 @@ t_stack				*add_negative_to_end_linklist(t_stack *stack, char *value);
 int					initializatiom_with_split(t_stack *stack_a, char *str);
 
 // handle negative
+
+int					index_the_index(t_stack **stack_a);
+int					get_min_position_for_index(t_stack **stack, int index);
+int					get_min_for_index(t_stack **stack);
 
 int					count_negative(t_stack **stack_a);
 void				push_negative(t_stack **stack_a, t_stack **stack_b);
