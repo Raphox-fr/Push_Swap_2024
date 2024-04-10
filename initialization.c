@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/08 20:07:35 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 11:53:27 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,26 +46,16 @@ int	initializatiom_with_split(t_stack *stack_a, char *str)
 		exit_error(&stack_a, &stack_a);
 		exit(1);
 	}
-	if (ft_atoi(string[1]) <= 0)
-	{
-		stack_a->sign = 1;
-		stack_a->data = ft_atoi(string[1]) * -1;
-		stack_a->negative_data = ft_atoi(string[1]);
-	}
-	else
-	{
-		stack_a->data = ft_atoi(string[1]);
-		stack_a->sign = 0;
-	}
+	
+	stack_a->data = ft_atoi(string[1]);
+	stack_a->sign = 0;
 	stack_a->size_a = count_elements;
+	
 	if (count_elements > 2)
 	{
 		while (i < count_elements)
 		{
-			if (ft_atoi(string[i]) < 0)
-				add_negative_to_end_linklist(stack_a, string[i]);
-			else
-				add_to_end_linklist(stack_a, string[i]);
+			add_to_end_linklist(stack_a, string[i]);
 			i++;
 		}
 		free_array((size_t)count_elements, string);

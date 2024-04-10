@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/08 23:19:57 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 18:05:40 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,33 +32,35 @@ int	main(int argc, char **argv)
 
 	if (get_stack_size(&stack_a) == 3)
 		sort_3_elements(&stack_a);
-	else
-	{
+		
+	else if (get_stack_size(&stack_a) == 4)
+		sort_4_elements(&stack_a, &stack_b);
+
+	else if (get_stack_size(&stack_a) == 5)
+		sort_5_elements(&stack_a, &stack_b);
+	else if (get_stack_size(&stack_a) > 5)
 		radix_sort(&stack_a, &stack_b);
-		push_negative(&stack_a, &stack_b);
-		negative_to_positive(&stack_a, &stack_b);
+
+	
+	printf("-------------\n");
+	t_stack	*cur;
+	t_stack	*stock;
+	printf("Stack A: ");
+	cur = stack_a;
+	while (cur != NULL)
+	{
+		printf("%ld ", cur->data);
+		cur = cur->next;
 	}
 	
-	
-	
-	// t_stack	*cur;
-	// t_stack	*stock;
-	// printf("Stack A: ");
-	// cur = stack_a;
-	// while (cur != NULL)
-	// {
-	// 	printf("%ld ", cur->data);
-	// 	cur = cur->next;
-	// }
-	// printf("\n");
-	// printf("Stack B: ");
-	// stock = stack_b;
-	// while (stock != NULL)
-	// {
-	// 	printf("%ld ", stock->data);
-	// 	stock = stock->next;
-	// }
-	// printf("\n");
+	printf("\nStack B: ");
+	stock = stack_b;
+	while (stock != NULL)
+	{
+		printf("%ld ", stock->data);
+		stock = stock->next;
+	}
+	printf("\n");
 
 	free_stack(&stack_a);
 	free_stack(&stack_b);

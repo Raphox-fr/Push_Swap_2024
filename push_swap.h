@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/08 19:54:31 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 17:41:16 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,21 @@ typedef struct s_stack
 
 // Sorting------------------------
 
-int					sort_less_5(t_stack **stack_a, t_stack **stack_b);
-int					do_sort_less_5(t_stack **stack_a, t_stack **stack_b);
+int					sort_3_elements(t_stack **stack_a);
+int					sort_4_elements(t_stack **stack_a, t_stack **stack_b);
+int					sort_5_elements(t_stack **stack_a, t_stack **stack_b);
 void				radix_sort(t_stack **stack_a, t_stack **stack_b);
 int					is_sorted(t_stack **stack_a);
 
-void				sort_three_elements(t_stack **stack_a);
-int					sort_3_elements(t_stack **stack_a);
+// get stack info --------------------------
 
+int					get_max_position(t_stack **stack);
+int					get_min_position(t_stack **stack);
 // Annexe -----------------------
 int					get_max(t_stack **stack);
 long int			ft_atoi(char *str);
 int					ft_strlen(char *str);
-long int					get_max_bits(t_stack **stack);
+long int			get_max_bits(t_stack **stack);
 int					get_stack_size(t_stack **stack);
 char				*ft_strncpy(char *dest, char *src, unsigned int n);
 char				*ft_strjoin(int size, char **strs, char *sep);

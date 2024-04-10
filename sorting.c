@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:56:40 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/08 18:15:07 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 17:50:25 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,47 @@ int	sort_3_elements(t_stack **stack_a)
 			swap(stack_a, 0);			
 		}
 	return (0);
+}
+
+int	sort_4_elements(t_stack **stack_a, t_stack **stack_b)
+{
+	while (get_min_position(stack_a) != 1)
+	{
+		if (get_min_position(stack_a) > 3)
+			reverse_rotate(stack_a, 0);
+		else if (get_min_position(stack_a) <= 3)
+			rotate(stack_a, 0);
+	}
+	push(stack_b, stack_a, 1);
+	sort_3_elements(stack_a);
+	push(stack_a, stack_b, 1);
+	return (0);
+	// printf("la position du max est ici : %d \n", get_max_position(stack_a));
+}
+
+int	sort_5_elements(t_stack **stack_a, t_stack **stack_b)
+{
+	int y;
+	
+	y = 0;
+	while (y != 2)
+	{
+		while (get_min_position(stack_a) != 1)
+		{
+			if (get_min_position(stack_a) > 3)
+				reverse_rotate(stack_a, 0);
+			else if (get_min_position(stack_a) <= 3)
+				rotate(stack_a, 0);
+		}
+		push(stack_b, stack_a, 1);
+		y++;
+	}
+	sort_3_elements(stack_a);
+	push(stack_a, stack_b, 1);
+	push(stack_a, stack_b, 1);
+	
+	return (0);
+	// printf("la position du max est ici : %d \n", get_max_position(stack_a));
 }
 
 

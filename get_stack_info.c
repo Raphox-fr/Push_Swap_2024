@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:53:46 by raphox            #+#    #+#             */
-/*   Updated: 2024/04/08 19:54:51 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 17:25:42 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,53 @@ int	get_max(t_stack **stack)
 	}
 	return (max);
 }
+
+int	get_max_position(t_stack **stack)
+{
+	int localize;
+	int long max;
+	t_stack	*stack_to_find;
+
+	max = get_max(stack);
+	localize = 1;
+	stack_to_find = *stack;
+	
+	while (stack_to_find != NULL)
+	{
+		if (stack_to_find->data == max)
+			return (localize);
+		localize++;
+		stack_to_find = stack_to_find->next;
+	}
+		// printf("la position du max est ici : %d", localize);
+	return (0);
+}
+
+
+
+
+int	get_min_position(t_stack **stack)
+{
+	int localize;
+	int long min;
+	t_stack	*stack_to_find;
+
+	min = get_min(stack);
+	localize = 1;
+	stack_to_find = *stack;
+	
+	while (stack_to_find != NULL)
+	{
+		if (stack_to_find->data == min)
+			return (localize);
+		localize++;
+		stack_to_find = stack_to_find->next;
+	}
+		// printf("la position du max est ici : %d", localize);
+	return (0);
+}
+
+
 
 int	get_min(t_stack **stack)
 {

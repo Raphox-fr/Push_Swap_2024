@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/08 17:31:13 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/10 19:22:20 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,6 @@
 // count elements  = 2
 
 // str = 1 ; 1 ; 0
-
-int	chck(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] || str[i] == '0' || (str[i] >= '0' && str[i] <= '9') 
-			|| (str[i] == '-' || str[i] == '+'))
-		i++;
-	if (i != ft_strlen(str))
-		return (0);
-
-	else if (i == ft_strlen(str))
-		return (1);
-	return (0);
-}
 
 
 
