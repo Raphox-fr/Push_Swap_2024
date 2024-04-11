@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:31:08 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/03 15:17:05 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:13:33 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	free_stack(t_stack **stack)
 }
 
 /* exit_error:
-*   Writes "Error\n" to the standard output after freeing stack a and b.
-*	Exits with standard error code 1.
-*/
+ *   Writes "Error\n" to the standard output after freeing stack a and b.
+ *	Exits with standard error code 1.
+ */
 
 void	free_array(size_t i, char **array)
 {
@@ -49,5 +49,5 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 	if (stack_b == NULL || *stack_b != NULL)
 		free_stack(stack_b);
 	write(2, "Error\n", 6);
-	exit (1);
+	exit(1);
 }

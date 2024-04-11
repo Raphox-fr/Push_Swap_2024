@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:07:45 by raphox            #+#    #+#             */
-/*   Updated: 2024/03/25 16:53:55 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:13:52 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_stack	*get_stack_bottom(t_stack *stack)
 
 void	reverse_rotate(t_stack **stack_a_b, int i)
 {
-	int		j;
+	int	j;
 
 	j = get_stack_size(stack_a_b);
 	if (j == 0 || j == 1)

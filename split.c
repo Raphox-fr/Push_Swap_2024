@@ -3,18 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
+/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:56:25 by raphox            #+#    #+#             */
-/*   Updated: 2024/04/05 18:50:19 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/11 18:13:59 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include <stdlib.h>
 #include <stdio.h>
- 
+#include <stdlib.h>
+
 int	count_words(char *str, char c)
 {
 	int	i;

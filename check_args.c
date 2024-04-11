@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/10 19:22:20 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/11 18:43:17 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 // str = 1 ; 1 ; 0
 
-
-
 int	check_base(int count_words, char **str)
 {
 	int	i;
@@ -25,8 +23,6 @@ int	check_base(int count_words, char **str)
 
 	i = 0;
 	y = 1;
-
-	
 	while (y < count_words)
 	{
 		i = y + 1;
@@ -46,21 +42,18 @@ int	check_base(int count_words, char **str)
 		y++;
 	}
 	return (1);
-}    
-    
-	
-	
+}
 
-int		is_valid_number(char *str)
+int	is_valid_number(char *str)
 {
-	int i;
-	int found;
+	int	i;
+	int	found;
 
 	found = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if ((str[i] < '0' || str[i] > '9') && (str[i] != '+' && str[i] != '-')) 
+		if ((str[i] < '0' || str[i] > '9') && (str[i] != '+' && str[i] != '-'))
 		{
 			return (0);
 		}
@@ -74,32 +67,29 @@ int		is_valid_number(char *str)
 			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
-int		is_exception_number(char *str)
+int	is_exception_number(char *str)
 {
-	
 	if ((ft_strlen(str) == 1) && (str[0] == '-' || str[0] == '+'))
 		return (0);
 	if (ft_atoi(str) < -2147483648 || ft_atoi(str) > 2147483647)
 		return (0);
-	return (1);  
+	return (1);
 }
 
+int	get_stack_size(t_stack **stack)
+{
+	int		size;
+	t_stack	*tmp;
 
-
-
-
-
-
-
-
-	// printf("%d", count_words);
-	// printf("%s\n", str[0]);
-	// printf("%s\n", str[1]);
-	// printf("%s\n", str[2]);
-	// printf("%s\n", str[3]);
-	// printf("%s\n", str[4]);
-	// printf("%d Count words \n:", count_words);
-	// printf("%s atoi \n:", "0");
+	size = 0;
+	tmp = *stack;
+	while (tmp != NULL)
+	{
+		tmp = tmp->next;
+		size++;
+	}
+	return (size);
+}

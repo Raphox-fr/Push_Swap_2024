@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/10 21:15:45 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/11 18:24:43 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ int	initialize_all(int argc, char **argv, t_stack *stack_a)
 	if (argc >= 2)
 	{
 		joind_args = ft_strjoin(argc, argv, " ");
-		initializatiom_with_split(stack_a, joind_args);
+		initialization_with_split(stack_a, joind_args);
 		free(joind_args);
+		index_the_index(&stack_a);
 		return (1);
 	}
 	return (0);
 }
 
-int	initializatiom_with_split(t_stack *stack_a, char *str)
+int	initialization_with_split(t_stack *stack_a, char *str)
 {
 	int		i;
 	int		count_elements;
@@ -40,18 +41,12 @@ int	initializatiom_with_split(t_stack *stack_a, char *str)
 	i = 2;
 	count_elements = count_words(str, ' ');
 	string = ft_split(str, ' ');
-	
 	if (check_base(count_elements, string) == 0)
-	{
 		exit_error(&stack_a, &stack_a);
-		exit(1);
-	}
-	
 	stack_a->data = ft_atoi(string[1]);
 	stack_a->sign = 0;
 	stack_a->index = -1;
 	stack_a->size_a = count_elements;
-	
 	if (count_elements > 2)
 	{
 		while (i < count_elements)
