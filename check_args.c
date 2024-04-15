@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/14 21:26:36 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/15 19:42:13 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	is_valid_number(char *str)
 		if (str[i] == '+' || str[i] == '-')
 		{
 			found++;
-			if (i > 1 && (str[i] == '+' || str[i] == '-') && (str[i - 1] != ' '))
+			if ((i > 1) && (str[i] == '+' || str[i] == '-')
+				&& (str[i - 1] != ' '))
 				return (0);
 			if (found == 2)
 				return (0);
@@ -74,6 +75,15 @@ int	is_valid_number(char *str)
 
 int	is_exception_number(char *str)
 {
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((i >= 1) && (str[i] == '+' || str[i] == '-') && (str[i - 1] != ' '))
+			return (0);
+		i++;
+	}
 	if ((ft_strlen(str) == 1) && (str[0] == '-' || str[0] == '+'))
 		return (0);
 	if (ft_atoi(str) < -2147483648 || ft_atoi(str) > 2147483647)

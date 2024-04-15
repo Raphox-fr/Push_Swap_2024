@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/14 21:54:25 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/15 19:38:48 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ int	main(int argc, char **argv)
 
 	stack_a = new_stack(0);
 	stack_b = NULL;
-
-	// printf("voici l argc : %d argv : %s", argc, argv[1]);
 	if (initialize_all(argc, argv, stack_a) == -1)
 	{
 		free_both_stack(&stack_a, &stack_b);
-		return(0);	
+		return (0);
 	}
 	if (is_sorted(&stack_a) == get_stack_size(&stack_a))
 		free_both_stack(&stack_a, &stack_b);
@@ -38,8 +36,7 @@ int	main(int argc, char **argv)
 		sort_5_elements(&stack_a, &stack_b);
 	else if (get_stack_size(&stack_a) > 5)
 		radix_sort(&stack_a, &stack_b);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
+	free_both_stack(&stack_a, &stack_b);
 	return (0);
 }
 
@@ -54,7 +51,7 @@ int	main(int argc, char **argv)
 // 	cur = cur->next;
 // }
 
-// printf("\nStack B: ");
+// printf("\nStack B : ");
 // stock = stack_b;
 // while (stock != NULL)
 // {

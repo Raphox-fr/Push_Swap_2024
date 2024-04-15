@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:21:37 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/14 20:56:54 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/15 16:54:27 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	{
 		anh = malloc(1);
 		*anh = '\0';
+		free(anh);
 		return (anh);
 	}
 	countall = ft_count_string(size, strs, sep);

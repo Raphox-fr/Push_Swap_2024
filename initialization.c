@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/15 12:02:46 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/15 19:42:22 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,46 @@
 int	initialize_all(int argc, char **argv, t_stack *stack_a)
 {
 	char	*joind_args;
+
 	if (argc == 1)
 	{
-		free_stack(&stack_a);
 		return (-1);
 	}
-	
-	if (argc >= 3)
+	if (argc == 2 && (argv[1][0] == '\0'))
+	{
+		write(1, "Error\n", 6);
+		return (-1);
+	}
+	if (argc >= 2)
 	{
 		joind_args = ft_strjoin(argc, argv, " ");
-		initialization_with_split(stack_a, joind_args);
+		if (initialization_with_split(stack_a, joind_args) == -1)
+		{
+			free(joind_args);
+			return (-1);
+		}
 		free(joind_args);
 		index_the_index(&stack_a);
 		return (1);
 	}
 	return (0);
+}
+
+int	check_entire_base(t_stack *stack_a, char **string, char *str,
+		int count_elements)
+{
+	if (check_base(count_elements, string) == 1 && (count_elements == 2))
+	{
+		free_array((size_t)count_elements, string);
+		return (-1);
+	}
+	if (check_base(count_elements, string) == 0)
+	{
+		free_array((size_t)count_elements, string);
+		free(str);
+		exit_error(&stack_a, &stack_a);
+	}
+	return (1);
 }
 
 int	initialization_with_split(t_stack *stack_a, char *str)
@@ -41,8 +66,8 @@ int	initialization_with_split(t_stack *stack_a, char *str)
 	i = 2;
 	count_elements = count_words(str, ' ');
 	string = ft_split(str, ' ');
-	if (check_base(count_elements, string) == 0)
-		exit_error(&stack_a, &stack_a);
+	if (check_entire_base(stack_a, string, str, count_elements) == -1)
+		return (-1);
 	stack_a->data = ft_atoi(string[1]);
 	stack_a->sign = 0;
 	stack_a->index = -1;

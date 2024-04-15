@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 15:31:08 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/14 18:55:46 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/15 19:42:32 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,8 @@ int	free_both_stack(t_stack **stack_a, t_stack **stack_b)
 		free_stack(stack_a);
 	if (stack_b == NULL || *stack_b != NULL)
 		free_stack(stack_b);
-	exit(1);
+	return (0);
 }
-
-
-
 
 void	free_stack(t_stack **stack)
 {
