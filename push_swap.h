@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/11 18:45:53 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/14 18:54:22 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int					index_the_index(t_stack **stack_a);
 void				free_stack(t_stack **stack);
 void				free_array(size_t i, char **array);
 void				exit_error(t_stack **stack_a, t_stack **stack_b);
+int					free_both_stack(t_stack **stack_a, t_stack **stack_b);
 
 // Split -----------------------
 char				**ft_split(char *s, char c);

@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 17:07:45 by raphox            #+#    #+#             */
-/*   Updated: 2024/04/11 18:13:52 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/14 18:33:59 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ void	reverse_rotate(t_stack **stack_a_b, int i)
 		j--;
 	}
 	if (i == 0)
-		printf("rra\n");
+		write(1, "rra\n", 4);
 	else if (i == 1)
-		printf("rrb\n");
+		write(1, "rrb\n", 4);
 }
 
 void	reverse_reverse_rotate(t_stack **stack_a, t_stack **stack_b)
 {
 	reverse_rotate(stack_a, -1);
 	reverse_rotate(stack_b, -1);
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }

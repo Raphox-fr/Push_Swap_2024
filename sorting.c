@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:56:40 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/11 18:45:29 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/14 18:35:08 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	sort_4_elements(t_stack **stack_a, t_stack **stack_b)
 	}
 	push(stack_b, stack_a, 1);
 	sort_3_elements(stack_a);
-	push(stack_a, stack_b, 1);
+	push(stack_a, stack_b, 0);
 	return (0);
 }
 
@@ -90,8 +90,8 @@ int	sort_5_elements(t_stack **stack_a, t_stack **stack_b)
 		y++;
 	}
 	sort_3_elements(stack_a);
-	push(stack_a, stack_b, 1);
-	push(stack_a, stack_b, 1);
+	push(stack_a, stack_b, 0);
+	push(stack_a, stack_b, 0);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/26 16:23:54 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/11 18:41:17 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/14 18:34:12 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	index_the_index(t_stack **stack_a)
 
 	index = 0;
 	i = get_stack_size(stack_a);
-	printf(" zeub : %d \n", i);
 	while (i > 0)
 	{
 		get_min_position_for_index(stack_a, index);

@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:07 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/11 18:46:34 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/14 21:54:25 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,17 @@ int	main(int argc, char **argv)
 
 	stack_a = new_stack(0);
 	stack_b = NULL;
+
+	// printf("voici l argc : %d argv : %s", argc, argv[1]);
 	if (initialize_all(argc, argv, stack_a) == -1)
-		return (0);
-	if (is_sorted(&stack_a) == get_stack_size(&stack_a))
 	{
-		free_stack(&stack_a);
-		free_stack(&stack_b);
-		return (0);
+		free_both_stack(&stack_a, &stack_b);
+		return(0);	
 	}
+	if (is_sorted(&stack_a) == get_stack_size(&stack_a))
+		free_both_stack(&stack_a, &stack_b);
+	if (get_stack_size(&stack_a) == 2)
+		swap(&stack_a, 0);
 	if (get_stack_size(&stack_a) == 3)
 		sort_3_elements(&stack_a);
 	else if (get_stack_size(&stack_a) == 4)

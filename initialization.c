@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/11 18:24:43 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/15 12:02:46 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 int	initialize_all(int argc, char **argv, t_stack *stack_a)
 {
 	char	*joind_args;
-
 	if (argc == 1)
 	{
 		free_stack(&stack_a);
 		return (-1);
 	}
-	if (argc >= 2)
+	
+	if (argc >= 3)
 	{
 		joind_args = ft_strjoin(argc, argv, " ");
 		initialization_with_split(stack_a, joind_args);
