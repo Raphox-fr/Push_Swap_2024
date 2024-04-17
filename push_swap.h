@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/14 18:54:22 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/17 14:36:48 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ int					check_base(int argc, char **str);
 int					is_valid_number(char *str);
 int					is_exception_number(char *str);
 int					get_stack_size(t_stack **stack);
+
+//Check_args2
+int check_args2(char *str);
 
 // Move ------------------------
 // i = 0 = Stack_a | i = 1 = Stack_b | i = -1 Print rien

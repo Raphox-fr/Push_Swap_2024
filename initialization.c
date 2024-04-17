@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 15:57:25 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/15 19:42:22 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/17 15:38:24 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	initialize_all(int argc, char **argv, t_stack *stack_a)
 	{
 		return (-1);
 	}
-	if (argc == 2 && (argv[1][0] == '\0'))
+	if (argc == 2 && ((argv[1][0] == '\0') || check_args2(argv[1]) == 0))
 	{
 		write(1, "Error\n", 6);
 		return (-1);
