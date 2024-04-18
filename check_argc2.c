@@ -6,29 +6,43 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 14:19:31 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/17 15:05:41 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:49:38 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_args2(char *str)
+int	do_check_args2(char **argv, int argc)
 {
-	int i;
-	int k;
+	int	i;
 
-	k = 0;
-	i = 0;
-
-	while (str[i])
+	i = 1;
+	while (i < argc)
 	{
-		if ((str[i] >= '0' && str[i] <= '9') && str[i] != '\0')
+		if (check_args2(argv[i]) == -1)
 		{
-			k++;
+			write(1, "Error\n", 6);
+			return (-1);
 		}
 		i++;
 	}
-	if (k >= 1)
-		return (1);
 	return (0);
+}
+
+int	check_args2(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+		return (-1);
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (-1);
 }

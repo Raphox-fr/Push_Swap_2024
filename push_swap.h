@@ -6,7 +6,7 @@
 /*   By: rafaria <rafaria@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:18:11 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/17 14:36:48 by rafaria          ###   ########.fr       */
+/*   Updated: 2024/04/18 16:48:59 by rafaria          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ int					is_valid_number(char *str);
 int					is_exception_number(char *str);
 int					get_stack_size(t_stack **stack);
 
-//Check_args2
-int check_args2(char *str);
+// Check_args2
+int					do_check_args2(char **argv, int argc);
+int					check_args2(char *str);
 
 // Move ------------------------
 // i = 0 = Stack_a | i = 1 = Stack_b | i = -1 Print rien
