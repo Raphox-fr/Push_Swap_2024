@@ -6,7 +6,7 @@
 /*   By: raphox <raphox@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:27:26 by rafaria           #+#    #+#             */
-/*   Updated: 2024/04/15 19:42:13 by raphox           ###   ########.fr       */
+/*   Updated: 2024/04/19 13:05:09 by raphox           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,30 @@ int	is_exception_number(char *str)
 			return (0);
 		i++;
 	}
+	
 	if ((ft_strlen(str) == 1) && (str[0] == '-' || str[0] == '+'))
 		return (0);
 	if (ft_atoi(str) < -2147483648 || ft_atoi(str) > 2147483647)
 		return (0);
 	return (1);
 }
+
+int check_size(char *str)
+{
+	int i;
+	int sign;
+	
+	i = 0;
+	sign = 0;
+	
+	while (str[i] <= '0' || str[i] >= '9')
+		i++;
+	sign = i;
+	
+}
+
+
+
 
 int	get_stack_size(t_stack **stack)
 {
